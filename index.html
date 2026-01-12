@@ -60,10 +60,24 @@
 
     /* HERO */
     header {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      position: relative;
+      text-align: center;
       color: white;
       padding: 120px 20px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 500px;
+    }
+
+    header .hero-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(11,42,74,0.7), rgba(11,42,74,0.7)),
+                  url('https://raw.githubusercontent.com/your-username/your-repo/main/data_background.png') center/cover no-repeat;
+      z-index: -1;
     }
 
     header h1 {
@@ -71,8 +85,14 @@
       margin-bottom: 20px;
     }
 
-    section { padding: 80px 20px; }
+    header p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
+    /* SECTIONS */
+    section { padding: 80px 20px; }
     .container { max-width: 1200px; margin: auto; }
 
     h2 { font-size: 36px; margin-bottom: 40px; text-align: center; }
@@ -114,6 +134,8 @@
       border-radius: 14px;
       text-decoration: none;
       font-weight: 600;
+      cursor: pointer;
+      border: none;
     }
 
     .button:hover { opacity: 0.9; }
@@ -187,6 +209,11 @@
       padding: 50px 20px;
     }
 
+    /* RESPONSIVE HERO */
+    @media (max-width: 768px) {
+      header h1 { font-size: 38px; }
+      header p { font-size: 16px; }
+    }
   </style>
 </head>
 
@@ -209,9 +236,10 @@
 
 <!-- HERO -->
 <header id="home">
+  <div class="hero-bg"></div>
   <h1>Business monitoring at your fingertips</h1>
   <p>
-    Dashify helps companies transform complex data into powerful, interactive dashboards using Tableau and Power BI.
+    Dashify helps companies transform complex data into powerful, interactive dashboards, using Tableau and Power BI.
   </p>
 </header>
 
@@ -226,47 +254,43 @@
     </div>
   </div>
 </section>
-  
+
 <!-- DASHBOARDS -->
 <section id="dashboards">
   <div class="container">
     <h2>Dashboards</h2>
 
     <!-- TABLEAU DASHBOARDS -->
-    <h3>Tableau</h3>
+    <h3 style="text-align: center;">Tableau</h3>
     <div class="scroll-container">
       <div class="scroll-card">
-        <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"></iframe>
-        <div class="overlay">Global Energy</div>
-      </div>
-      <div class="scroll-card">
         <iframe src="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population?:language=en-US&:showVizHome=no&:embed=true"></iframe>
-        <div class="overlay">Global Population</div>
+        <div class="overlay">Sports</div>
       </div>
       <div class="scroll-card">
         <iframe src="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural?:language=en-US&:showVizHome=no&:embed=true"></iframe>
-        <div class="overlay">Urban vs Rural Population</div>
+        <div class="overlay">Business</div>
       </div>
       <div class="scroll-card">
-        <iframe src="https://public.tableau.com/views/GlobalMalnutrition_17611589782110/GlobalMalnutrition?:language=en-US&:showVizHome=no&:embed=true"></iframe>
-        <div class="overlay">Global Malnutrition</div>
+        <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"></iframe>
+        <div class="overlay">Travel</div>
       </div>
     </div>
 
     <!-- POWER BI DASHBOARDS -->
-    <h3>Power BI</h3>
-    <div class="scroll-container">
-      <div class="scroll-card">
-        <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9"></iframe>
-        <div class="overlay">Dashboard 1</div>
-      </div>
+    <h3 style="text-align: center;">Power BI</h3>
       <div class="scroll-card">
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiN2U3NGMyNWEtZTAxNS00MzVhLWExNmMtOThhZjdiYjQ4MWNkIiwidCI6IjEyNGU2OWRiLWVmNjUtNDk2Yi05NmE5LTVkNTZiZWMxZDI5MSIsImMiOjl9"></iframe>
-        <div class="overlay">Dashboard 2</div>
+        <div class="overlay">Sports</div>
       </div>
       <div class="scroll-card">
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzNmNTRkMWEtNmZjMS00NzdjLWEyMDYtYWExYzA4NzVhZGQwIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9"></iframe>
-        <div class="overlay">Dashboard 3</div>
+        <div class="overlay">Business</div>
+      </div>
+        <div class="scroll-container">
+      <div class="scroll-card">
+        <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9"></iframe>
+        <div class="overlay">Travel</div>
       </div>
     </div>
 
@@ -276,7 +300,7 @@
 <!-- PRICING -->
 <section id="pricing">
   <div class="container">
-    <h2>Pricing and Packages</h2>
+    <h2>Packages</h2>
     <div class="grid">
       <div class="card">
         <h3>Starter</h3>
@@ -337,5 +361,3 @@
 
 </body>
 </html>
-
-
