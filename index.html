@@ -211,7 +211,12 @@ header h1 {
       <nav>
          <div class="logo"> <img src="logo.png"> Dashify </div>
          <div class="hamburger" onclick="toggleMenu()">☰</div>
-         <div class="nav-links" id="navLinks"> <a href="#home">Home</a> <a href="#about-us">About Us</a> <a href="#what-we-do">What We Do</a> <a href="#dashboards">Dashboards</a> <a href="#pricing">Packages</a> <a href="#contact">Contact Us</a> </div>
+         <div class="nav-links" id="navLinks"> <a href="#home">Home</a> 
+            <a href="#about-us">About Us</a> 
+            <a href="#what-we-do">What We Do</a> 
+            <a href="#dashboards">Dashboards</a>
+            <a href="#pricing">Products</a>
+            <a href="#contact">Contact Us</a> </div>
       </nav>
       <header id="home">
          <div class="hero-bg"></div>
@@ -353,28 +358,63 @@ header h1 {
       </section>
       
       <!-- PACKAGES --> 
-      <section id="pricing">
-         <div class="container">
-            <h2>Packages</h2>
-            <div class="grid">
-               <div class="card">
-                  <h3>Basic</h3>
-                  <p class="price">R20,000</p>
-                  <p>1 dashboard, up to 3 data sources, professional visuals.</p>
-               </div>
-               <div class="card">
-                  <h3>Standard</h3>
-                  <p class="price">R50,000</p>
-                  <p>Up to 5 dashboards, automation, branding & insights.</p>
-               </div>
-               <div class="card">
-                  <h3>Enterprise</h3>
-                  <p class="price">Custom</p>
-                  <p>Advanced analytics, ongoing support, tailored solutions.</p>
-               </div>
-            </div>
-         </div>
-      </section>
+<section id="pricing">
+  <div class="container">
+    <h2>Products</h2>
+
+    <p style="max-width:800px; margin:0 auto 50px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
+      Choose from our range of professional dashboard and data services tailored to your business needs.
+    </p>
+
+<div class="grid">
+
+  <!-- BASIC -->
+  <div class="card">
+    <div class="service-icon" style="margin: 0 auto 20px;">
+      <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <path d="M12 20V10"/>
+        <path d="M18 20V4"/>
+        <path d="M6 20v-6"/>
+      </svg>
+    </div>
+    <h3>Basic</h3>
+    <p class="price">R20,000</p>
+    <p>1 dashboard, up to 3 data sources, professional visuals.</p>
+  </div>
+
+  <!-- STANDARD -->
+  <div class="card">
+    <div class="service-icon" style="margin: 0 auto 20px;">
+      <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <path d="M3 3v18h18"/>
+        <rect x="7" y="10" width="3" height="6"/>
+        <rect x="12" y="6" width="3" height="10"/>
+        <rect x="17" y="13" width="3" height="3"/>
+      </svg>
+    </div>
+    <h3>Standard</h3>
+    <p class="price">R50,000</p>
+    <p>Up to 5 dashboards, automation, branding & insights.</p>
+  </div>
+
+  <!-- ENTERPRISE -->
+  <div class="card">
+    <div class="service-icon" style="margin: 0 auto 20px;">
+      <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <path d="M3 21h18"/>
+        <path d="M5 21V7l7-4 7 4v14"/>
+        <path d="M9 21v-6h6v6"/>
+      </svg>
+    </div>
+    <h3>Enterprise</h3>
+    <p class="price">Custom</p>
+    <p>Advanced analytics, ongoing support, tailored solutions.</p>
+  </div>
+
+</div>
+
+</section>
+
       
 <!-- CONTACT -->
 <section id="contact">
@@ -460,6 +500,7 @@ header h1 {
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
+
 
 
 
