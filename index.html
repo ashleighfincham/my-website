@@ -79,7 +79,6 @@
       }
 
       .nav-links.show { display: flex; }
-
       .hamburger { display: block; }
     }
 
@@ -116,6 +115,12 @@
     h2 { font-size: 36px; margin-bottom: 40px; text-align: center; }
     h3 { font-size: 24px; margin-bottom: 20px; text-align: center; }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
     .card {
       background: white;
       padding: 30px;
@@ -126,18 +131,12 @@
 
     .price { font-size: 40px; font-weight: 700; color: var(--brand); }
 
-    /* SCROLL CONTAINERS */
+    /* SCROLL CONTAINER */
     .scroll-container {
       display: flex;
       overflow-x: auto;
       gap: 20px;
       padding-bottom: 15px;
-    }
-
-    .scroll-container::-webkit-scrollbar { height: 8px; }
-    .scroll-container::-webkit-scrollbar-thumb {
-      background: var(--brand);
-      border-radius: 10px;
     }
 
     .scroll-card {
@@ -170,30 +169,19 @@
       display: block;
     }
 
-    .overlay:hover { background: rgba(11,42,74,1); }
-
-    /* CLIENT LOGO MARQUEE */
-    .logo-strip {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-    }
-
+    /* CLIENT LOGO SCROLL */
+    .logo-strip { overflow: hidden; }
     .logo-track {
-      display: inline-flex;
-      animation: scroll 25s linear infinite;
+      display: flex;
       gap: 60px;
-      align-items: center;
+      animation: scroll 30s linear infinite;
     }
 
-    .logo-track img {
-      height: 60px;
-      object-fit: contain;
-    }
+    .logo-track img { height: 60px; }
 
     @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     footer {
@@ -209,7 +197,7 @@
 
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="Dashify Logo"> Dashify
+    <img src="logo.png"> Dashify
   </div>
 
   <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -229,6 +217,18 @@
   <p>Complex data transformed into powerful dashboards, using Tableau and Power BI.</p>
 </header>
 
+<!-- ABOUT US -->
+<section id="about-us" style="background:#eef2f7;">
+  <div class="container">
+    <h2>About Us</h2>
+    <div class="card" style="max-width:900px; margin:auto;">
+      <p style="font-size:18px; line-height:1.6;">
+        At Dashify, we focus on developing dashboards that effectively visualise a customer's data to improve monitoring capabilities and data-driven decision-making. With a combined 13 years of experience in data analytics, and a range of software skills, we help customers bridge the gap between valuable captured data and insightful data visualisation.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- DASHBOARDS -->
 <section id="dashboards">
   <div class="container">
@@ -237,17 +237,15 @@
     <h3>Tableau</h3>
     <div class="scroll-container">
       <div class="scroll-card">
-        <iframe src="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population?:showVizHome=no&:embed=true"></iframe>
+        <iframe src="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population?:embed=true"></iframe>
         <a class="overlay" href="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population" target="_blank">Business</a>
       </div>
-
       <div class="scroll-card">
-        <iframe src="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural?:showVizHome=no&:embed=true"></iframe>
+        <iframe src="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural?:embed=true"></iframe>
         <a class="overlay" href="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural" target="_blank">Sports</a>
       </div>
-
       <div class="scroll-card">
-        <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"></iframe>
+        <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:embed=true"></iframe>
         <a class="overlay" href="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy" target="_blank">Travel</a>
       </div>
     </div>
@@ -258,12 +256,10 @@
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiN2U3NGMyNWEtZTAxNS00MzVhLWExNmMtOThhZjdiYjQ4MWNkIiwidCI6IjEyNGU2OWRiLWVmNjUtNDk2Yi05NmE5LTVkNTZiZWMxZDI5MSIsImMiOjl9"></iframe>
         <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiN2U3NGMyNWEtZTAxNS00MzVhLWExNmMtOThhZjdiYjQ4MWNkIiwidCI6IjEyNGU2OWRiLWVmNjUtNDk2Yi05NmE5LTVkNTZiZWMxZDI5MSIsImMiOjl9" target="_blank">Business</a>
       </div>
-
       <div class="scroll-card">
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzNmNTRkMWEtNmZjMS00NzdjLWEyMDYtYWExYzA4NzVhZGQwIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9"></iframe>
         <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiNzNmNTRkMWEtNmZjMS00NzdjLWEyMDYtYWExYzA4NzVhZGQwIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9" target="_blank">Sports</a>
       </div>
-
       <div class="scroll-card">
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9"></iframe>
         <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9" target="_blank">Travel</a>
@@ -272,7 +268,7 @@
   </div>
 </section>
 
-<!-- CLIENT LOGOS -->
+<!-- CLIENTS -->
 <section id="clients" style="background:#eef2f7;">
   <div class="container">
     <h2>Our Clients</h2>
@@ -294,9 +290,28 @@
   <div class="container">
     <h2>Packages</h2>
     <div class="scroll-container">
-      <div class="card scroll-card"><h3>Basic</h3><p class="price">R20,000</p><p>1 dashboard, up to 3 data sources.</p></div>
-      <div class="card scroll-card"><h3>Standard</h3><p class="price">R50,000</p><p>Up to 5 dashboards, automation.</p></div>
-      <div class="card scroll-card"><h3>Enterprise</h3><p class="price">Custom</p><p>Advanced analytics, support.</p></div>
+      <div class="card scroll-card"><h3>Basic</h3><p class="price">R20,000</p><p>1 dashboard, up to 3 sources.</p></div>
+      <div class="card scroll-card"><h3>Standard</h3><p class="price">R50,000</p><p>Up to 5 dashboards.</p></div>
+      <div class="card scroll-card"><h3>Enterprise</h3><p class="price">Custom</p><p>Advanced analytics.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="grid">
+      <div class="card">
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="text" placeholder="Company Name">
+          <textarea placeholder="Message" required></textarea>
+          <button class="button">Send Message</button>
+        </form>
+        <p><strong>Email:</strong> info@dashify.co.za</p>
+        <p><strong>Location:</strong> South Africa (Remote worldwide)</p>
+      </div>
     </div>
   </div>
 </section>
