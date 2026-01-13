@@ -26,21 +26,44 @@
          /* CLIENT LOGO SCROLL */ 
          .logo-strip { overflow: hidden; } .logo-track { display: flex; gap: 60px; animation: scroll 30s linear infinite; } .logo-track img { height: 60px; } @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } } footer { background: var(--dark); color: white; text-align: center; padding: 50px 20px; } 
       
-        /* CONTACT GRID */
+    /* CONTACT GRID */
 .contact-grid {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
   margin-top: 40px;
-  align-items: stretch; /* Makes both columns same height */
+  align-items: stretch; /* keeps both columns same height */
 }
 
-/* LEFT CONTACT INFO BOXES */
+/* LEFT FORM */
+.contact-form {
+  flex: 2 1 400px;
+}
+
+/* Make textarea same height as inputs */
+.contact-form form input,
+.contact-form form textarea {
+  height: 50px; /* same as inputs */
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  width: 100%;
+  margin-bottom: 16px;
+  resize: none; /* no resize */
+}
+
+/* CONTACT BUTTON */
+.contact-form form .contact-button {
+  margin-top: 10px;
+}
+
+/* RIGHT CONTACT INFO BOXES */
 .contact-info {
   flex: 1 1 250px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Evenly space boxes vertically */
+  justify-content: space-between; /* evenly space boxes to match form height */
 }
 
 .contact-box {
@@ -79,22 +102,14 @@
   line-height: 1.4;
 }
 
-/* RIGHT CONTACT FORM */
-.contact-form {
-  flex: 2 1 400px;
-}
-
-/* Responsive: stack on small screens */
+/* Responsive: stack on mobile */
 @media (max-width: 900px) {
   .contact-grid {
-    flex-direction: column;
+    flex-direction: column-reverse; /* form first, icons below */
   }
   .contact-info {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .contact-box {
-    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }
 
@@ -140,7 +155,7 @@
                      </svg>
                   </div>
                   <h3>Dashboard Development</h3>
-                  <p> We develop dashboards that effectively visualise your data to improve monitoring capabilities and insight-driven decision-making. </p>
+                  <p> We develop dashboards that effectively visualise your data to improve monitoring capabilities and data-driven decision-making. </p>
                </div>
                <!-- Interactive Filtering --> 
                <div class="service-card">
@@ -217,7 +232,19 @@
 
     <div class="contact-grid">
 
-      <!-- LEFT SIDE: CONTACT INFO BOXES -->
+      <!-- LEFT SIDE: FORM -->
+      <div class="contact-form">
+        <div class="card">
+          <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="contact-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: CONTACT INFO BOXES -->
       <div class="contact-info">
         <a href="mailto:info@dashify.co.za" class="contact-box">
           <div class="contact-icon">
@@ -226,9 +253,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M21 8v10H3V8m18-2H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/>
             </svg>
           </div>
-          <div class="contact-text">
-            <strong>Email:</strong> info@dashify.co.za
-          </div>
+          <div class="contact-text"><strong>Email:</strong> info@dashify.co.za</div>
         </a>
 
         <a href="tel:+27821231234" class="contact-box">
@@ -238,9 +263,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2v2.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5zm14 2v2a2 2 0 0 1-2 2h-2.5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2H15a2 2 0 0 1 2 2z"/>
             </svg>
           </div>
-          <div class="contact-text">
-            <strong>Phone:</strong> +27 82 123 1234
-          </div>
+          <div class="contact-text"><strong>Phone:</strong> +27 82 123 1234</div>
         </a>
 
         <div class="contact-box">
@@ -250,28 +273,14 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 0C7 12 4 16 4 18c0 3 4 4 8 4s8-1 8-4c0-2-3-6-8-7z"/>
             </svg>
           </div>
-          <div class="contact-text">
-            <strong>Location:</strong> South Africa (Remote worldwide)
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT SIDE: FORM -->
-      <div class="contact-form">
-        <div class="card">
-          <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="text" placeholder="Company Name">
-            <input type="email" placeholder="Email Address" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="contact-button">Send Message</button>
-          </form>
+          <div class="contact-text"><strong>Location:</strong> South Africa (Remote worldwide)</div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
       <!-- CLIENTS --> 
       <section id="clients" style="background:#eef2f7;">
@@ -289,6 +298,7 @@
       <script> function toggleMenu() { document.getElementById('navLinks').classList.toggle('show'); } </script> 
    </body>
 </html>
+
 
 
 
