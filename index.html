@@ -26,6 +26,27 @@
          /* CLIENT LOGO SCROLL */ 
          .logo-strip { overflow: hidden; } .logo-track { display: flex; gap: 60px; animation: scroll 30s linear infinite; } .logo-track img { height: 60px; } @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } } footer { background: var(--dark); color: white; text-align: center; padding: 50px 20px; } 
 
+/* Mobile-friendly dashboard stacking */
+@media (max-width: 768px) {
+  #dashboards .scroll-container {
+    display: block;      /* stack items vertically */
+    overflow-x: visible; /* remove horizontal scroll */
+    padding-bottom: 0;
+  }
+
+  #dashboards .scroll-card {
+    min-width: 100%;     /* take full width */
+    height: auto;        /* adjust height automatically */
+    margin-bottom: 20px; /* spacing between cards */
+  }
+
+  #dashboards .scroll-card iframe {
+    height: 300px;       /* fixed height for iframe on mobile */
+  }
+}
+
+
+         
 header h1 {
   font-size: 48px;
   margin: 0;           /* remove extra spacing below header */
@@ -517,6 +538,7 @@ header h1 {
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
+
 
 
 
