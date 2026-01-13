@@ -24,34 +24,50 @@
     }
 
 
-    /* WHAT WE DO GRID */
-.grid-4 {
+/* WHAT WE DO – CLEAN PREMIUM STYLE (NO ANIMATION) */
+.services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.grid-4 .card {
+.service-card {
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  border-radius: 22px;
+  padding: 40px 30px;
   text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
 }
 
-.grid-4 .icon {
-  font-size: 48px;
-  margin-bottom: 15px;
+.service-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #0b2a4a, #143a63);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.service-card h3 {
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #475569;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .grid-4 {
+  .services-grid {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
@@ -321,38 +337,51 @@ form textarea:focus {
   <div class="container">
     <h2>What We Do</h2>
 
-    <div class="grid-4">
-      <div class="card">
-        <div class="icon">📊</div>
+    <div class="services-grid">
+
+      <!-- Dashboard Development -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M3 3v18h18"/>
+            <rect x="7" y="10" width="3" height="6"/>
+            <rect x="12" y="6" width="3" height="10"/>
+            <rect x="17" y="13" width="3" height="3"/>
+          </svg>
+        </div>
         <h3>Dashboard Development</h3>
         <p>
           We develop dashboards that effectively visualise your data to improve monitoring capabilities and insight-driven decision-making.
         </p>
       </div>
 
-      <div class="card">
-        <div class="icon">🎛️</div>
+      <!-- Interactive Filtering -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M4 6h16M7 12h10M10 18h4"/>
+          </svg>
+        </div>
         <h3>Interactive Filtering</h3>
         <p>
-          Enable users to have access to their most important metrics at their fingertips with filtering and aggregation by selected attributes.
+          Enable users to access their most important metrics with filtering and aggregation by selected attributes.
         </p>
       </div>
 
-      <div class="card">
-        <div class="icon">🗄️</div>
-        <h3>Data Setup</h3>
-        <p>
-          We help with setting up your data infrastructure to ensure automatic updates and seamless integration with your dashboards.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">⚡</div>
+      <!-- Automated Updates -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M21 12a9 9 0 1 1-3-6.7"/>
+            <polyline points="21 3 21 9 15 9"/>
+          </svg>
+        </div>
         <h3>Automated Updates</h3>
         <p>
-          Configure your dashboards for real-time or scheduled data refreshes, keeping your insights always current and actionable.
+          Configure your dashboards for real-time or scheduled refreshes, keeping insights always current and actionable.
         </p>
       </div>
+
     </div>
   </div>
 </section>
@@ -494,6 +523,7 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
 
 
