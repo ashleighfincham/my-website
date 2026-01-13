@@ -28,23 +28,24 @@
 
 header h1 {
   font-size: 48px;
-  margin-bottom: 16px;
-  line-height: 1;       /* overall tight spacing */
+  margin: 0;           /* remove extra spacing below header */
+  line-height: 1;      /* minimal spacing for the first line */
   text-align: center;
 }
 
 .hero-bold {
-  font-weight: 700;      /* bold */
+  font-weight: 700;    /* bold */
   display: block;
+  line-height: 1;      /* minimal spacing */
 }
 
 .hero-light {
-  font-weight: 400;      /* normal weight */
-  font-style: italic;    /* italic */
+  font-weight: 400;    /* normal weight */
+  font-style: italic;  /* italic */
   display: block;
-  font-size: 42px;       /* slightly smaller */
-  margin-top: 0;         /* remove spacing */
-  line-height: 0.9;      /* make lines even closer */
+  font-size: 42px;     /* slightly smaller */
+  margin: 0;           /* remove extra space */
+  line-height: 1;      /* almost touching */
 }
 
 
@@ -365,6 +366,7 @@ header h1 {
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
+
 
 
 
