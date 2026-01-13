@@ -24,6 +24,37 @@
     }
 
 
+    /* WHAT WE DO GRID */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.grid-4 .card {
+  text-align: center;
+}
+
+.grid-4 .icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
 form {
   display: flex;
   flex-direction: column;
@@ -260,6 +291,7 @@ form textarea:focus {
   <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#about-us">About Us</a>
+    <a href="#what-we-do">What We Do</a>
     <a href="#dashboards">Dashboards</a>
     <a href="#pricing">Packages</a>
     <a href="#contact">Contact Us</a>
@@ -284,6 +316,48 @@ form textarea:focus {
   </div>
 </section>
 
+<!-- WHAT WE DO -->
+<section id="what-we-do" style="background:#f8fafc;">
+  <div class="container">
+    <h2>What We Do</h2>
+
+    <div class="grid-4">
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Dashboard Development</h3>
+        <p>
+          We develop dashboards that effectively visualise your data to improve monitoring capabilities and insight-driven decision-making.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎛️</div>
+        <h3>Interactive Filtering</h3>
+        <p>
+          Enable users to have access to their most important metrics at their fingertips with filtering and aggregation by selected attributes.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🗄️</div>
+        <h3>Data Setup</h3>
+        <p>
+          We help with setting up your data infrastructure to ensure automatic updates and seamless integration with your dashboards.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Automated Updates</h3>
+        <p>
+          Configure your dashboards for real-time or scheduled data refreshes, keeping your insights always current and actionable.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
 <!-- DASHBOARDS -->
 <section id="dashboards">
   <div class="container">
@@ -420,6 +494,7 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
 
 
