@@ -23,6 +23,61 @@
       scroll-behavior: smooth;
     }
 
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: Inter, sans-serif;
+}
+
+/* Inputs */
+form input,
+form textarea {
+  font-family: Inter, sans-serif;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  width: 100%;
+  background: #fff;
+}
+
+/* Make message box clearly bigger */
+form textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+/* Focus state */
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #0b2a4a;
+  box-shadow: 0 0 0 3px rgba(11, 42, 74, 0.1);
+}
+
+/* Bigger blue button */
+.contact-button {
+  margin-top: 10px;
+  background: #0b2a4a;
+  color: white;
+  padding: 18px;
+  border-radius: 16px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-button:hover {
+  background: #123f6d;
+  transform: translateY(-2px);
+}
+
+
+    
     /* NAVBAR */
     nav {
       position: sticky;
@@ -272,7 +327,21 @@
   </div>
 </section>
 
-<!-- CLIENTS -->
+
+
+<!-- PACKAGES -->
+<section id="pricing">
+  <div class="container">
+    <h2>Packages</h2>
+    <div class="scroll-container">
+      <div class="card scroll-card"><h3>Basic</h3><p class="price">R20,000</p><p>1 dashboard, up to 3 sources.</p></div>
+      <div class="card scroll-card"><h3>Standard</h3><p class="price">R50,000</p><p>Up to 5 dashboards.</p></div>
+      <div class="card scroll-card"><h3>Enterprise</h3><p class="price">Custom</p><p>Advanced analytics.</p></div>
+    </div>
+  </div>
+</section>
+
+  <!-- CLIENTS -->
 <section id="clients" style="background:#eef2f7;">
   <div class="container">
     <h2>Our Clients</h2>
@@ -289,18 +358,6 @@
   </div>
 </section>
 
-<!-- PACKAGES -->
-<section id="pricing">
-  <div class="container">
-    <h2>Packages</h2>
-    <div class="scroll-container">
-      <div class="card scroll-card"><h3>Basic</h3><p class="price">R20,000</p><p>1 dashboard, up to 3 sources.</p></div>
-      <div class="card scroll-card"><h3>Standard</h3><p class="price">R50,000</p><p>Up to 5 dashboards.</p></div>
-      <div class="card scroll-card"><h3>Enterprise</h3><p class="price">Custom</p><p>Advanced analytics.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -313,6 +370,7 @@
           <input type="text" placeholder="Your Name" required>
           <input type="text" placeholder="Company Name">
           <input type="email" placeholder="Email Address" required>
+
           <textarea placeholder="Your Message" required></textarea>
 
           <button type="submit" class="contact-button">
@@ -330,6 +388,7 @@
   </div>
 </section>
 
+
   
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
@@ -343,6 +402,7 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
 
 
