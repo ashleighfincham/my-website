@@ -44,129 +44,109 @@
       font-weight: 700;
     }
 
-    .logo img {
-      height: 60px;
+    .logo img { height: 60px; }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 25px;
       font-weight: 500;
       opacity: 0.85;
     }
 
     nav a:hover { opacity: 1; }
 
-/* HERO */
-header {
-  position: relative;
-  text-align: center;
-  color: white;
-  padding: 130px 20px;  /* increased from 120px to 160px for more height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 500px;    /* increased from 500px to 600px */
-}
-
-
-header .hero-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(rgba(11,42,74,0.55), rgba(11,42,74,0.55)),
-    url('https://pikwizard.com/pw/medium/caa8c10a456f11f2b5c2663799d64304.jpg')
-    center/cover no-repeat;
-  z-index: -1;
-}
-
-
-
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 16px;
+    .hamburger {
+      display: none;
+      font-size: 32px;
+      cursor: pointer;
     }
 
-    header p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto;
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #0f172a;
+        flex-direction: column;
+        padding: 20px;
+        width: 100%;
+      }
+
+      .nav-links.show { display: flex; }
+
+      .hamburger { display: block; }
     }
 
-    /* SECTIONS */
+    /* HERO */
+    header {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 130px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 500px;
+    }
+
+    header .hero-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(rgba(11,42,74,0.55), rgba(11,42,74,0.55)),
+        url('https://pikwizard.com/pw/medium/caa8c10a456f11f2b5c2663799d64304.jpg')
+        center/cover no-repeat;
+      z-index: -1;
+    }
+
+    header h1 { font-size: 48px; margin-bottom: 16px; }
+    header p { font-size: 18px; max-width: 700px; margin: auto; }
+
     section { padding: 80px 20px; }
     .container { max-width: 1200px; margin: auto; }
 
     h2 { font-size: 36px; margin-bottom: 40px; text-align: center; }
-    h3 { font-size: 24px; margin-bottom: 20px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
+    h3 { font-size: 24px; margin-bottom: 20px; text-align: center; }
 
     .card {
       background: white;
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
       text-align: center;
-      position: relative;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-    }
+    .price { font-size: 40px; font-weight: 700; color: var(--brand); }
 
-    .price {
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--brand);
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      background: var(--brand);
-      color: white;
-      padding: 14px 26px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-    }
-
-    .button:hover { opacity: 0.9; }
-
-    /* HORIZONTAL SCROLL DASHBOARDS */
+    /* SCROLL CONTAINERS */
     .scroll-container {
       display: flex;
       overflow-x: auto;
       gap: 20px;
-      padding-bottom: 10px;
-      scroll-behavior: smooth;
+      padding-bottom: 15px;
     }
 
-    .scroll-container::-webkit-scrollbar { height: 10px; }
+    .scroll-container::-webkit-scrollbar { height: 8px; }
     .scroll-container::-webkit-scrollbar-thumb {
       background: var(--brand);
       border-radius: 10px;
     }
 
     .scroll-card {
-      position: relative;
       flex-shrink: 0;
       min-width: 380px;
       height: 280px;
       border-radius: 16px;
       overflow: hidden;
+      position: relative;
       box-shadow: 0 15px 30px rgba(0,0,0,0.08);
     }
 
@@ -176,49 +156,51 @@ header .hero-bg {
       border: none;
     }
 
-    .scroll-card .overlay {
+    .overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: rgba(11,42,74,0.85);
+      background: rgba(11,42,74,0.9);
       color: white;
-      padding: 8px 12px;
-      font-weight: 600;
-      font-size: 14px;
+      padding: 8px;
       text-align: center;
+      font-weight: 600;
+      text-decoration: none;
+      display: block;
     }
 
-    /* FORM */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .overlay:hover { background: rgba(11,42,74,1); }
+
+    /* CLIENT LOGO MARQUEE */
+    .logo-strip {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
     }
 
-    form input, form textarea {
-      padding: 14px 18px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      width: 100%;
-      resize: vertical;
+    .logo-track {
+      display: inline-flex;
+      animation: scroll 25s linear infinite;
+      gap: 60px;
+      align-items: center;
     }
 
-    form textarea { min-height: 120px; }
+    .logo-track img {
+      height: 60px;
+      object-fit: contain;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
     footer {
       background: var(--dark);
       color: white;
       text-align: center;
       padding: 50px 20px;
-    }
-
-    /* RESPONSIVE HERO */
-    @media (max-width: 768px) {
-      header h1 { font-size: 34px; }
-      header p { font-size: 16px; }
-      header { min-height: 200px; padding: 50px 20px; }
     }
   </style>
 </head>
@@ -227,10 +209,12 @@ header .hero-bg {
 
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="Dashify Logo">
-    Dashify
+    <img src="logo.png" alt="Dashify Logo"> Dashify
   </div>
-  <div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#about-us">About Us</a>
     <a href="#dashboards">Dashboards</a>
@@ -242,143 +226,90 @@ header .hero-bg {
 <header id="home">
   <div class="hero-bg"></div>
   <h1>Monitoring at your fingertips</h1>
-  <p>
-    Complex data transformed into powerful dashboards, using Tableau and Power BI.
-  </p>
+  <p>Complex data transformed into powerful dashboards, using Tableau and Power BI.</p>
 </header>
-
-<!-- ABOUT US -->
-<section id="about-us" style="background:#eef2f7;">
-  <div class="container">
-    <h2>About Us</h2>
-    <div class="card" style="padding:30px; max-width:900px; margin:auto;">
-      <p style="font-size:18px; line-height:1.6; text-align:center;">
-        At Dashify, we focus on developing dashboards that effectively visualise a customer's data to improve monitoring capabilities and data-driven decision-making. With a combined 13 years of experience in data analytics, and a range of software skills, we help customers bridge the gap between valuable captured data and insightful data visualisation.
-      </p>
-    </div>
-  </div>
-</section>
 
 <!-- DASHBOARDS -->
 <section id="dashboards">
   <div class="container">
     <h2>Dashboards</h2>
 
-    <!-- TABLEAU DASHBOARDS -->
-    <h3 style="text-align: center;">Tableau</h3>
+    <h3>Tableau</h3>
     <div class="scroll-container">
       <div class="scroll-card">
-        <iframe src="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population?:language=en-US&:showVizHome=no&:embed=true"></iframe>
-        <div class="overlay">Business</div>
+        <iframe src="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population?:showVizHome=no&:embed=true"></iframe>
+        <a class="overlay" href="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population" target="_blank">Business</a>
       </div>
+
       <div class="scroll-card">
-        <iframe src="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural?:language=en-US&:showVizHome=no&:embed=true"></iframe>
-        <div class="overlay">Sports</div>
+        <iframe src="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural?:showVizHome=no&:embed=true"></iframe>
+        <a class="overlay" href="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural" target="_blank">Sports</a>
       </div>
+
       <div class="scroll-card">
         <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"></iframe>
-        <div class="overlay">Travel</div>
+        <a class="overlay" href="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy" target="_blank">Travel</a>
       </div>
     </div>
 
-    <!-- POWER BI DASHBOARDS -->
-    <h3 style="text-align: center;">Power BI</h3>
-      <div class="scroll-container">
+    <h3>Power BI</h3>
+    <div class="scroll-container">
       <div class="scroll-card">
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiN2U3NGMyNWEtZTAxNS00MzVhLWExNmMtOThhZjdiYjQ4MWNkIiwidCI6IjEyNGU2OWRiLWVmNjUtNDk2Yi05NmE5LTVkNTZiZWMxZDI5MSIsImMiOjl9"></iframe>
-        <div class="overlay">Business</div>
+        <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiN2U3NGMyNWEtZTAxNS00MzVhLWExNmMtOThhZjdiYjQ4MWNkIiwidCI6IjEyNGU2OWRiLWVmNjUtNDk2Yi05NmE5LTVkNTZiZWMxZDI5MSIsImMiOjl9" target="_blank">Business</a>
       </div>
+
       <div class="scroll-card">
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzNmNTRkMWEtNmZjMS00NzdjLWEyMDYtYWExYzA4NzVhZGQwIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9"></iframe>
-        <div class="overlay">Sports</div>
+        <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiNzNmNTRkMWEtNmZjMS00NzdjLWEyMDYtYWExYzA4NzVhZGQwIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9" target="_blank">Sports</a>
       </div>
+
       <div class="scroll-card">
         <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9"></iframe>
-        <div class="overlay">Travel</div>
+        <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9" target="_blank">Travel</a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- OUR CLIENTS -->
+<!-- CLIENT LOGOS -->
 <section id="clients" style="background:#eef2f7;">
   <div class="container">
     <h2>Our Clients</h2>
-    <div class="grid">
-      <div class="card">4C Predictions</div>
-      <div class="card">Pure Retail</div>
-      <div class="card">Lita</div>
+    <div class="logo-strip">
+      <div class="logo-track">
+        <img src="logo_1.png">
+        <img src="logo_2.png">
+        <img src="logo_3.png">
+        <img src="logo_1.png">
+        <img src="logo_2.png">
+        <img src="logo_3.png">
+      </div>
     </div>
   </div>
 </section>
-  
-<!-- PRICING -->
+
+<!-- PACKAGES -->
 <section id="pricing">
   <div class="container">
     <h2>Packages</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Basic</h3>
-        <p class="price">R20,000</p>
-        <p>1 dashboard, up to 3 data sources, professional visuals.</p>
-      </div>
-
-      <div class="card">
-        <h3>Standard</h3>
-        <p class="price">R50,000</p>
-        <p>Up to 5 dashboards, automation, branding & insights.</p>
-      </div>
-
-      <div class="card">
-        <h3>Enterprise</h3>
-        <p class="price">Custom</p>
-        <p>Advanced analytics, ongoing support, tailored solutions.</p>
-      </div>
+    <div class="scroll-container">
+      <div class="card scroll-card"><h3>Basic</h3><p class="price">R20,000</p><p>1 dashboard, up to 3 data sources.</p></div>
+      <div class="card scroll-card"><h3>Standard</h3><p class="price">R50,000</p><p>Up to 5 dashboards, automation.</p></div>
+      <div class="card scroll-card"><h3>Enterprise</h3><p class="price">Custom</p><p>Advanced analytics, support.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT US -->
-<section id="contact">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <div class="grid">
-      <div class="card">
-        <form>
-          <input type="text" placeholder="Name" required>
-          <input type="text" placeholder="Company Name">
-          <textarea placeholder="Message" required></textarea>
-          <button type="submit" class="button">Send Message</button>
-        </form>
-        <p style="margin-top:20px;"><strong>Email:</strong> info@dashify.co.za</p>
-        <p><strong>Location:</strong> South Africa (Remote worldwide)</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
 
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('show');
+}
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
