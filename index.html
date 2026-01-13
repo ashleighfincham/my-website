@@ -45,6 +45,11 @@
   }
 }
 
+         /* Add spacing between Tableau and Power BI sections */
+#dashboards .scroll-container + h3 {
+  margin-top: 50px; /* adjust gap as needed */
+}
+
 
          
 header h1 {
@@ -366,10 +371,16 @@ header h1 {
          </div>
       </section>
       
-      <!-- DASHBOARDS -->       
-      <section id="dashboards">
-         <div class="container">
-            <h2>Dashboards</h2>
+<!-- DASHBOARDS -->       
+<section id="dashboards">
+  <div class="container">
+    <h2>Dashboards</h2>
+
+    <!-- NEW INTRO TEXT -->
+    <p style="max-width:800px; margin:10px auto 40px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
+      Explore how we transform public datasets from various industries into insightful dashboards using Tableau or Power BI.
+    </p>
+
             <h3>Tableau</h3>
             <div class="scroll-container">
                <div class="scroll-card"> <iframe src="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population?:showVizHome=no&:embed=true"></iframe> <a class="overlay" href="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population" target="_blank">Business</a> </div>
@@ -518,6 +529,12 @@ header h1 {
 <section id="clients" style="background:#eef2f7;">
   <div class="container">
     <h2>Our Clients</h2>
+
+    <!-- NEW INTRO TEXT -->
+    <p style="max-width:800px; margin:10px auto 40px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
+      We've partnered with innovative companies across South Africa and beyond.
+    </p>
+
     <div class="logo-strip">
       <div class="logo-track">
         <img src="logo_1.png">
@@ -538,6 +555,7 @@ header h1 {
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
+
 
 
 
