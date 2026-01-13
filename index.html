@@ -24,7 +24,62 @@
          /* SCROLL CONTAINER */ 
          .scroll-container { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 15px; } .scroll-card { flex-shrink: 0; min-width: 380px; height: 280px; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 15px 30px rgba(0,0,0,0.08); } .scroll-card iframe { width: 100%; height: 100%; border: none; } .overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(11,42,74,0.9); color: white; padding: 8px; text-align: center; font-weight: 600; text-decoration: none; display: block; } 
          /* CLIENT LOGO SCROLL */ 
-         .logo-strip { overflow: hidden; } .logo-track { display: flex; gap: 60px; animation: scroll 30s linear infinite; } .logo-track img { height: 60px; } @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } } footer { background: var(--dark); color: white; text-align: center; padding: 50px 20px; } </style>
+         .logo-strip { overflow: hidden; } .logo-track { display: flex; gap: 60px; animation: scroll 30s linear infinite; } .logo-track img { height: 60px; } @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } } footer { background: var(--dark); color: white; text-align: center; padding: 50px 20px; } 
+      
+         /* CONTACT GRID */
+.contact-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+/* LEFT CONTACT INFO */
+.contact-info {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  color: #111;
+  font-weight: 500;
+}
+
+.contact-item:hover {
+  color: var(--brand);
+}
+
+.contact-icon {
+  font-size: 24px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand);
+  color: white;
+  border-radius: 12px;
+}
+
+/* RIGHT CONTACT FORM */
+.contact-form {
+  flex: 2 1 400px;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    flex-direction: column;
+  }
+}
+
+      
+      </style>
    </head>
    <body>
       <nav>
@@ -134,21 +189,46 @@
          </div>
       </section>
       
-      <!-- CONTACT --> 
-      <section id="contact">
-         <div class="container">
-            <h2>Contact Us</h2>
-            <div style="max-width:600px; margin:auto;">
-               <div class="card">
-                  <form> <input type="text" placeholder="Your Name" required> <input type="text" placeholder="Company Name"> <input type="email" placeholder="Email Address" required> <textarea placeholder="Your Message" required></textarea> <button type="submit" class="contact-button"> Send Message </button> </form>
-                  <div style="margin-top:25px; font-size:15px; color:#444;">
-                     <p><strong>Email:</strong> info@dashify.co.za</p>
-                     <p><strong>Location:</strong> South Africa (Remote worldwide)</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+<!-- CONTACT --> 
+<section id="contact">
+  <div class="container">
+    <h2 class="center">Contact Us</h2>
+
+    <div class="contact-grid">
+
+      <!-- LEFT SIDE: CONTACT INFO -->
+      <div class="contact-info">
+        <a href="mailto:info@dashify.co.za" class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>Email: info@dashify.co.za</div>
+        </a>
+        <a href="tel:+27821231234" class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>Phone: +27 82 123 1234</div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>Location: South Africa (Remote worldwide)</div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: FORM -->
+      <div class="contact-form">
+        <div class="card">
+          <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="text" placeholder="Company Name">
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="contact-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
       
       <!-- CLIENTS --> 
       <section id="clients" style="background:#eef2f7;">
@@ -166,4 +246,5 @@
       <script> function toggleMenu() { document.getElementById('navLinks').classList.toggle('show'); } </script> 
    </body>
 </html>
+
 
