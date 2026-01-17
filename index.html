@@ -266,7 +266,32 @@ header h1 {
     const navLinks = document.getElementById('navLinks');
     navLinks.classList.toggle('show');
   }
+
+  // Smooth scroll without adding #hash to URL
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        // Remove hash from URL
+        history.replaceState(null, null, window.location.pathname);
+      }
+
+      // Close mobile menu after click
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.remove('show');
+    });
+  });
 </script>
+
 
    
    <body>
@@ -602,6 +627,7 @@ header h1 {
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
+
 
 
 
