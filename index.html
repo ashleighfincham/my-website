@@ -263,6 +263,18 @@ header h1 {
    </head>
 
 <script>
+  const password = "46"; // change this
+
+  const input = prompt("Password:");
+  if (input !== password) {
+    document.body.innerHTML = "Access denied";
+    throw new Error("Unauthorized");
+  }
+</script>
+
+
+   
+<script>
   function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
     navLinks.classList.toggle('show');
@@ -636,6 +648,7 @@ header h1 {
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
+
 
 
 
