@@ -267,30 +267,38 @@ header h1 {
     navLinks.classList.toggle('show');
   }
 
-  // Smooth scroll without adding #hash to URL
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+  // Robust smooth scrolling without URL hash
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", function (e) {
+        const id = this.getAttribute("href");
 
-      const targetId = this.getAttribute('href').substring(1);
-      const target = document.getElementById(targetId);
+        if (id.length > 1) {
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
 
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+            const yOffset = -80; // adjust if you have sticky nav
+            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-        // Remove hash from URL
-        history.replaceState(null, null, window.location.pathname);
-      }
+            window.scrollTo({
+              top: y,
+              behavior: "smooth"
+            });
 
-      // Close mobile menu after click
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.remove('show');
+            // Remove hash from URL
+            history.pushState("", document.title, window.location.pathname);
+
+            // Close mobile menu
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks) navLinks.classList.remove('show');
+          }
+        }
+      });
     });
   });
 </script>
+
 
 
    
