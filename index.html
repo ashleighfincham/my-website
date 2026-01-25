@@ -258,6 +258,56 @@ header h1 {
   }
 }
 
+
+         
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.dashboard-column h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.dashboard-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.dashboard-card iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+}
+
+.dashboard-card .overlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.dashboard-card .overlay:hover {
+  background: rgba(15, 23, 42, 1);
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
       
       </style>
    </head>   
@@ -479,25 +529,38 @@ header h1 {
   <div class="container">
     <h2>Dashboards</h2>
 
-    <!-- NEW INTRO TEXT -->
     <p style="max-width:800px; margin:10px auto 40px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
       Explore how we transform data into insightful dashboards using Tableau or Power BI.
     </p>
 
-            <h3>Tableau</h3>
-            <div class="scroll-container">
-               <div class="scroll-card"> <iframe src="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population?:showVizHome=no&:embed=true"></iframe> <a class="overlay" href="https://public.tableau.com/views/GlobalPopulation_17611638447330/Population" target="_blank">Business</a> </div>
-               <div class="scroll-card"> <iframe src="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural?:showVizHome=no&:embed=true"></iframe> <a class="overlay" href="https://public.tableau.com/views/UrbanandRuralPopulation_17611611394800/UrbanvsRural" target="_blank">Sports</a> </div>
-               <div class="scroll-card"> <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"></iframe> <a class="overlay" href="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy" target="_blank">Travel</a> </div>
-            </div>
-            <h3>Power BI</h3>
-            <div class="scroll-container">
-               <div class="scroll-card"> <iframe src="https://app.powerbi.com/view?r=eyJrIjoiN2U3NGMyNWEtZTAxNS00MzVhLWExNmMtOThhZjdiYjQ4MWNkIiwidCI6IjEyNGU2OWRiLWVmNjUtNDk2Yi05NmE5LTVkNTZiZWMxZDI5MSIsImMiOjl9"></iframe> <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiN2U3NGMyNWEtZTAxNS00MzVhLWExNmMtOThhZjdiYjQ4MWNkIiwidCI6IjEyNGU2OWRiLWVmNjUtNDk2Yi05NmE5LTVkNTZiZWMxZDI5MSIsImMiOjl9" target="_blank">Business</a> </div>
-               <div class="scroll-card"> <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzNmNTRkMWEtNmZjMS00NzdjLWEyMDYtYWExYzA4NzVhZGQwIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9"></iframe> <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiNzNmNTRkMWEtNmZjMS00NzdjLWEyMDYtYWExYzA4NzVhZGQwIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9" target="_blank">Sports</a> </div>
-               <div class="scroll-card"> <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9"></iframe> <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9" target="_blank">Travel</a> </div>
-            </div>
-         </div>
-      </section>
+    <div class="dashboard-grid">
+
+      <!-- Tableau -->
+      <div class="dashboard-column">
+        <h3>Tableau</h3>
+        <div class="dashboard-card">
+          <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"></iframe>
+          <a class="overlay" href="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy" target="_blank">
+            View Tableau Dashboard →
+          </a>
+        </div>
+      </div>
+
+      <!-- Power BI -->
+      <div class="dashboard-column">
+        <h3>Power BI</h3>
+        <div class="dashboard-card">
+          <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9"></iframe>
+          <a class="overlay" href="https://app.powerbi.com/view?r=eyJrIjoiNzc2NGIyZGItN2FkOC00NDk5LTgyZTktODVjNWRlZTY1ZmQyIiwidCI6IjViY2QyNTczLWU4YzQtNDZjOC1iOTQwLTIwNDZjOWJjMTc4NSIsImMiOjh9" target="_blank">
+            View Power BI Dashboard →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
       
       <!-- PACKAGES --> 
 <section id="pricing">
@@ -658,6 +721,7 @@ header h1 {
 <footer>
   <p>© 2026 Dashify. All rights reserved.</p>
 </footer>
+
 
 
 
