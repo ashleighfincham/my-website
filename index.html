@@ -95,44 +95,20 @@ header h1 {
   font-size: 24px;
   color: #0b2a4a;
   font-weight: 700;
+}.services-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.collapsible-card {
-  text-align: center;
+.solutions-card {
+  grid-column: 1 / -1;
 }
-
-.service-header {
-  cursor: pointer;
-}
-
-
-.service-header h3 {
-  margin-bottom: 0;
-}
-
-.service-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
-
-.service-content p {
-  margin-top: 20px;
-  line-height: 1.6;
-  color: #475569;
-}
-
+         
 .service-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   margin-bottom: 20px;
-  padding: 0;
-  width: auto;
-  height: auto;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .service-image {
@@ -140,10 +116,10 @@ header h1 {
   height: 80px;
   object-fit: contain;
   display: block;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
          
@@ -493,106 +469,72 @@ function toggleService(element) {
     <div class="services-grid services-grid-3">
 
    <!-- DATA SETUP -->
-<div class="service-card collapsible-card">
+<div class="service-card">
 
-  <div class="service-header" onclick="toggleService(this)">
-
-    <img src="icon_data.png"
+  <div class="service-icon">
+    <img src="icon_dat.png"
          alt="Data Setup"
          class="service-image">
-
-    <h3>Data Setup</h3>
-
   </div>
 
-  <div class="service-content">
-    <p>
-      We establish reliable data connections and infrastructure that support automated updates, seamless integrations, and scalable reporting solutions.
-    </p>
-  </div>
+  <h3>Data Setup</h3>
+
+  <p>
+    We establish reliable data connections and infrastructure that support automated updates, seamless integrations, and scalable reporting solutions.
+  </p>
 
 </div>
 
-<!-- INTERACTIVE DASHBOARDS -->
-<div class="service-card collapsible-card">
+<div class="service-card">
 
-  <div class="service-header" onclick="toggleService(this)">
-
+  <div class="service-icon">
     <img src="icon_dashboard.png"
          alt="Interactive Dashboards"
          class="service-image">
-
-    <h3>Interactive Dashboards</h3>
-
   </div>
 
-  <div class="service-content">
-    <p>
-      We design and build intuitive dashboards that enable users to monitor performance, explore trends, and access the insights most relevant to their role.
-    </p>
-  </div>
+  <h3>Interactive Dashboards</h3>
+
+  <p>
+    We design and build intuitive dashboards that enable users to monitor performance, explore trends, and access the insights most relevant to their role.
+  </p>
 
 </div>
 
-<!-- AUTOMATED REPORTING -->
-<div class="service-card collapsible-card">
+<div class="service-card">
 
-  <div class="service-header" onclick="toggleService(this)">
-
+  <div class="service-icon">
     <img src="icon_report.png"
          alt="Automated Reporting"
          class="service-image">
-
-    <h3>Automated Reporting</h3>
-
   </div>
 
-  <div class="service-content">
-    <p>
-      We configure real-time or scheduled dashboard refreshes, reducing manual reporting effort and ensuring decision-makers always have access to current information.
-    </p>
-  </div>
+  <h3>Automated Reporting</h3>
+
+  <p>
+    We configure real-time or scheduled dashboard refreshes, reducing manual reporting effort and ensuring decision-makers always have access to current information.
+  </p>
 
 </div>
        
     <!-- BENEFITS LIST -->
-  <div class="card" style="
-  width:100%;
-  margin:60px auto 0;
-  text-align:left;
-  padding:35px;">
+  <div class="service-card solutions-card">
 
-      <h3 style="text-align:center; margin-bottom:25px;">
-        Our Solutions May Help You
-      </h3>
+    <h3>Our Solutions Help You</h3>
 
-      <ul style="
-        font-size:17px;
-        line-height:2;
-        color:#334155;
-        max-width:700px;
-        margin:0 auto;">
-
-        <li>Visualise complex business data through intuitive dashboards</li>
-
-        <li>Monitor KPIs and business performance in real time</li>
-
-        <li>Automate reporting and reduce manual processes</li>
-
-        <li>Bring together data from multiple sources into a single view</li>
-
-        <li>Enable interactive filtering and drill-down analysis</li>
-
-        <li>Improve decision-making through business intelligence and analytics</li>
-
-        <li>Provide stakeholders with access to the metrics that matter most</li>
-
-      </ul>
-
-    </div>
+    <ul>
+      <li>Visualise complex business data through intuitive dashboards</li>
+      <li>Monitor KPIs and business performance in real time</li>
+      <li>Automate reporting and reduce manual processes</li>
+      <li>Bring together data from multiple sources into a single view</li>
+      <li>Enable interactive filtering and drill-down analysis</li>
+      <li>Improve decision-making through business intelligence and analytics</li>
+      <li>Provide stakeholders with access to the metrics that matter most</li>
+    </ul>
 
   </div>
-</section>
+
+</div>
       
 <!-- DASHBOARDS -->       
 <section id="dashboards">
