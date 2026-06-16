@@ -99,8 +99,23 @@ header h1 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.solutions-card {
-  grid-column: 1 / -1;
+.solutions-card ul {
+  max-width: 750px;
+  margin: 0 auto;
+  padding-left: 30px;
+  text-align: left;
+  line-height: 2.4;
+  font-size: 17px;
+  color: #334155;
+}
+
+         .solutions-card li {
+  margin-bottom: 12px;
+}
+
+         .solutions-card h3 {
+  text-align: center;
+  margin-bottom: 30px;
 }
          
 .service-icon {
@@ -472,7 +487,7 @@ function toggleService(element) {
 <div class="service-card">
 
   <div class="service-icon">
-    <img src="icon_dat.png"
+    <img src="icon_datas.png"
          alt="Data Setup"
          class="service-image">
   </div>
@@ -512,7 +527,7 @@ function toggleService(element) {
   <h3>Automated Reporting</h3>
 
   <p>
-    We configure real-time or scheduled dashboard refreshes, reducing manual reporting effort and ensuring decision-makers always have access to current information.
+    We configure real-time or scheduled dashboard refreshes, reducing manual reporting effort and ensuring decision-makers have access to current information.
   </p>
 
 </div>
