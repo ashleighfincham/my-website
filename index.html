@@ -95,8 +95,15 @@ header h1 {
   font-size: 24px;
   color: #0b2a4a;
   font-weight: 700;
-}.services-grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+   .services-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+         .solutions-card {
+  grid-column: 1 / -1;
 }
 
 .solutions-card ul {
