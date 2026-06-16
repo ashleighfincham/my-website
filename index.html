@@ -380,10 +380,15 @@ header h1 {
          <div class="logo"> <img src="logo.png"> Dashify </div>
          <div class="hamburger" onclick="toggleMenu()">☰</div>
          <div class="nav-links" id="navLinks"> <a href="#home">Home</a> 
-            <a href="#about-us">About Us</a> 
+            
             <a href="#what-we-do">What We Do</a> 
+            
             <a href="#dashboards">Dashboards</a>
+            
             <a href="#pricing">Products</a>
+
+            <a href="#meet-the-team">Meet the Team</a> 
+            
             <a href="#contact">Contact Us</a> </div>
       </nav>
       <header id="home">
@@ -391,138 +396,141 @@ header h1 {
 
          
 <h1 class="hero-title">
-  <span class="hero-bold">Business Monitoring</span><br>
-  <span class="hero-italic">at your fingertips</span>
+<!--  <span class="hero-bold">Business Monitoring</span><br>  --> 
+  <span class="hero-italic">Transform Your Business Data Into Actionable Insights</span>
 </h1>
-
-
-         <p>Complex data transformed into powerful dashboards, using Tableau and Power BI.</p>
+         
+         <p>Custom Power BI and Tableau dashboards that help businesses monitor performance, identify trends, and make better decisions.</p>
       </header>
+  
       
-<!-- ABOUT US --> 
-<section id="about-us" style="background:#eef2f7;">
+<!-- WHAT WE DO -->
+<section id="what-we-do" style="background:#f8fafc;">
   <div class="container">
-    <h2>About Us</h2>
 
-    <p style="font-size:18px; line-height:1.6; text-align:center; max-width:900px; margin:0 auto 60px;">
-      With a combined 13 years of experience in data analytics, and a range of software skills, we help customers bridge the gap between valuable captured data and insightful data visualisation.
+    <h2>What We Do</h2>
+
+    <!-- INTRO -->
+    <p style="
+      max-width:900px;
+      margin:0 auto 30px;
+      font-size:18px;
+      line-height:1.8;
+      color:#475569;
+      text-align:center;">
+      At Dashify, we help businesses transform complex data into clear, actionable insights through custom Power BI and Tableau solutions. Our dashboards bring together data from multiple sources into a single view, helping organisations improve monitoring capabilities, streamline reporting, and make more informed decisions.
     </p>
 
-    <!-- ABOUT FEATURE CARDS -->
-    <div class="services-grid">
+    <!-- BULLET SUMMARY -->
+    <div class="card" style="
+      max-width:900px;
+      margin:0 auto 60px;
+      text-align:left;
+      padding:35px;">
 
-      <!-- Expert Team -->
+      <h3 style="text-align:center; margin-bottom:25px;">
+        Our Services Include
+      </h3>
+
+      <ul style="
+        font-size:17px;
+        line-height:2;
+        color:#334155;
+        max-width:700px;
+        margin:0 auto;">
+
+        <li>Custom dashboard development using Power BI and Tableau</li>
+
+        <li>Data visualisation that transforms complex information into intuitive insights</li>
+
+        <li>Automated reporting and scheduled dashboard refreshes</li>
+
+        <li>KPI monitoring and performance tracking across business functions</li>
+
+        <li>Interactive filtering and drill-down capabilities for deeper analysis</li>
+
+        <li>Data setup, integration and dashboard infrastructure support</li>
+
+        <li>Business intelligence solutions that improve decision-making</li>
+
+        <li>Analytics consulting to help organisations unlock greater value from their data</li>
+
+      </ul>
+    </div>
+
+    <!-- SERVICE CARDS -->
+    <div class="services-grid services-grid-4">
+
+      <!-- Dashboard Development -->
       <div class="service-card">
         <div class="service-icon">
           <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <circle cx="9" cy="7" r="3"/>
-            <circle cx="17" cy="7" r="3"/>
-            <path d="M2 21v-1a6 6 0 0 1 12 0v1"/>
-            <path d="M14 20v-1a6 6 0 0 1 8 0v1"/>
+            <path d="M3 3v18h18"/>
+            <rect x="7" y="10" width="3" height="6"/>
+            <rect x="12" y="6" width="3" height="10"/>
+            <rect x="17" y="13" width="3" height="3"/>
           </svg>
         </div>
-        <h3>Expert Team</h3>
-        <p>Seasoned professionals with deep expertise in data analytics and visualization across multiple platforms.</p>
+
+        <h3>Dashboard Development</h3>
+
+        <p>
+          Design and build custom dashboards that transform business data into clear visual insights, helping stakeholders monitor performance and make informed decisions.
+        </p>
       </div>
 
-      <!-- Diverse Experience -->
+      <!-- Data Setup -->
       <div class="service-card">
         <div class="service-icon">
           <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M2 12h20"/>
-            <path d="M12 2a15 15 0 0 1 0 20"/>
-            <path d="M12 2a15 15 0 0 0 0 20"/>
+            <ellipse cx="12" cy="5" rx="8" ry="3"/>
+            <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
+            <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
           </svg>
         </div>
-        <h3>Diverse Experience</h3>
-        <p>We've worked with a range of industries, from NGOs to local retail startups, delivering impactful solutions.</p>
+
+        <h3>Data Setup</h3>
+
+        <p>
+          Establish reliable data connections and infrastructure that support automated updates, seamless integrations, and scalable reporting solutions.
+        </p>
       </div>
-      
-      <!-- Varied Data Types -->
+
+      <!-- Interactive Filtering -->
       <div class="service-card">
         <div class="service-icon">
           <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="3" y="3" width="7" height="7"/>
-            <rect x="14" y="3" width="7" height="7"/>
-            <rect x="3" y="14" width="7" height="7"/>
-            <rect x="14" y="14" width="7" height="7"/>
+            <path d="M4 6h16M7 12h10M10 18h4"/>
           </svg>
         </div>
-        <h3>Varied Data Types</h3>
-        <p>From social survey data to satellite imagery, we've visualised various types of complex data sets.</p>
+
+        <h3>Interactive Analytics</h3>
+
+        <p>
+          Enable users to explore their data through filters, drill-downs, and dynamic visualisations that surface the metrics that matter most.
+        </p>
+      </div>
+
+      <!-- Automated Updates -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M21 12a9 9 0 1 1-3-6.7"/>
+            <polyline points="21 3 21 9 15 9"/>
+          </svg>
+        </div>
+
+        <h3>Automated Reporting</h3>
+
+        <p>
+          Configure real-time or scheduled dashboard refreshes that eliminate manual reporting and ensure decision-makers always have access to current information.
+        </p>
       </div>
 
     </div>
+
   </div>
 </section>
-
-
-
-      
-      <!-- WHAT WE DO --> 
-<section id="what-we-do" style="background:#f8fafc;">
-  <div class="container">
-    <h2>What We Do</h2>
-
-    <!-- NEW INTRO TEXT -->
-    <p style="max-width:800px; margin:0 auto 50px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
-      We effectively visualise a customer's data, in one place, to improve business monitoring.
-    </p>
-
-       <div class="services-grid services-grid-4">
-
-       <!-- Dashboard Development --> 
-               <div class="service-card">
-                  <div class="service-icon">
-                     <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path d="M3 3v18h18"/>
-                        <rect x="7" y="10" width="3" height="6"/>
-                        <rect x="12" y="6" width="3" height="10"/>
-                        <rect x="17" y="13" width="3" height="3"/>
-                     </svg>
-                  </div>
-                  <h3>Dashboard Development</h3>
-                  <p> Develop dashboards that visualise data to improve monitoring capabilities and decision-making.</p>
-               </div>
-
-<!-- Data Setup -->
-<div class="service-card">
-  <div class="service-icon">
-    <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-      <ellipse cx="12" cy="5" rx="8" ry="3"/>
-      <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
-      <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
-    </svg>
-  </div>
-  <h3>Data Setup</h3>
-  <p>We help with setting up your data infrastructure to ensure automatic updates and seamless integration with your dashboards.</p>
-</div>
-       
-               <!-- Interactive Filtering --> 
-               <div class="service-card">
-                  <div class="service-icon">
-                     <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path d="M4 6h16M7 12h10M10 18h4"/>
-                     </svg>
-                  </div>
-                  <h3>Interactive Filtering</h3>
-                  <p> Enable users to access their most important metrics with filtering and aggregation by selected attributes. </p>
-               </div>
-               <!-- Automated Updates --> 
-               <div class="service-card">
-                  <div class="service-icon">
-                     <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path d="M21 12a9 9 0 1 1-3-6.7"/>
-                        <polyline points="21 3 21 9 15 9"/>
-                     </svg>
-                  </div>
-                  <h3>Automated Updates</h3>
-                  <p> Configure dashboards for real-time or scheduled refreshes, keeping insights current and actionable. </p>
-               </div>
-            </div>
-         </div>
-      </section>
       
 <!-- DASHBOARDS -->       
 <section id="dashboards">
@@ -630,6 +638,64 @@ header h1 {
   </div>
 </section>
 
+    
+<!-- MEET THE TEAM --> 
+<section id="meet-the-team" style="background:#eef2f7;">
+  <div class="container">
+    <h2>Meet the Team</h2>
+
+    <p style="font-size:18px; line-height:1.6; text-align:center; max-width:900px; margin:0 auto 60px;">
+      With a combined 13 years of experience in data analytics, and a range of software skills, we help customers bridge the gap between valuable captured data and insightful data visualisation.
+    </p>
+
+    <!-- ABOUT FEATURE CARDS -->
+    <div class="services-grid">
+
+      <!-- Expert Team -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="9" cy="7" r="3"/>
+            <circle cx="17" cy="7" r="3"/>
+            <path d="M2 21v-1a6 6 0 0 1 12 0v1"/>
+            <path d="M14 20v-1a6 6 0 0 1 8 0v1"/>
+          </svg>
+        </div>
+        <h3>Expert Team</h3>
+        <p>Seasoned professionals with deep expertise in data analytics and visualization across multiple platforms.</p>
+      </div>
+
+      <!-- Diverse Experience -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15 15 0 0 1 0 20"/>
+            <path d="M12 2a15 15 0 0 0 0 20"/>
+          </svg>
+        </div>
+        <h3>Diverse Experience</h3>
+        <p>We've worked with a range of industries, from NGOs to local retail startups, delivering impactful solutions.</p>
+      </div>
+      
+      <!-- Varied Data Types -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <h3>Varied Data Types</h3>
+        <p>From social survey data to satellite imagery, we've visualised various types of complex data sets.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       
 <!-- CONTACT -->
