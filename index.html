@@ -1,1033 +1,728 @@
-<!DOCTYPE html> 
-<html>
-   <head>
-      <title>Dashify | Monitoring at your fingertips</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-      <style> :root { --brand: #0b2a4a; --dark: #0f172a; --light: #f8fafc; } * { box-sizing: border-box; } body { margin: 0; font-family: Inter, sans-serif; background: var(--light); color: #111; scroll-behavior: smooth; } 
-         /* WHAT WE DO – CLEAN PREMIUM STYLE (NO ANIMATION) */
-       
-         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; } 
-         .service-card { background: linear-gradient(135deg, #ffffff, #f1f5f9); border-radius: 22px; padding: 40px 30px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.04); } 
-       
-         .service-icon {
-  text-align: center;
-  margin-bottom: 20px;
-}
-         .service-card h3 { margin-bottom: 12px; } .service-card p { font-size: 16px; line-height: 1.6; color: #475569; } 
+<!DOCTYPE html>
+<html lang="en">
 
-         .services-grid-3 {grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
-         
-         /* Responsive */
-         @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } } form { display: flex; flex-direction: column; gap: 16px; font-family: Inter, sans-serif; } 
-         /* Inputs */
-         form input, form textarea { font-family: Inter, sans-serif; padding: 16px 18px; border-radius: 12px; border: 1px solid #d1d5db; font-size: 16px; width: 100%; background: #fff; } 
-         /* Make message box clearly bigger */ 
-         form textarea { min-height: 180px; resize: vertical; } 
-         /* Focus state */ 
-         form input:focus, form textarea:focus { outline: none; border-color: #0b2a4a; box-shadow: 0 0 0 3px rgba(11, 42, 74, 0.1); } 
-         /* Bigger blue button */ 
-         .contact-button { margin-top: 10px; background: #0b2a4a; color: white; padding: 18px; border-radius: 16px; border: none; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; } .contact-button:hover { background: #123f6d; transform: translateY(-2px); } 
-         /* NAVBAR */ 
-         nav { position: sticky; top: 0; background: rgba(15, 23, 42, 0.97); color: white; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; } .logo { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 700; } .logo img { height: 60px; } .nav-links { display: flex; gap: 25px; } nav a { color: white; text-decoration: none; font-weight: 500; opacity: 0.85; } nav a:hover { opacity: 1; } .hamburger { display: none; font-size: 32px; cursor: pointer; } @media (max-width: 768px) { .nav-links { display: none; position: absolute; top: 80px; right: 0; background: #0f172a; flex-direction: column; padding: 20px; width: 100%; } .nav-links.show { display: flex; } .hamburger { display: block; } } 
-         /* HERO */ 
-         header { position: relative; text-align: center; color: white; padding: 100px 20px; display: flex; flex-direction: column; justify-content: center; min-height: 350px; } header .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(11,42,74,0.55), rgba(11,42,74,0.55)), url('https://pikwizard.com/pw/medium/caa8c10a456f11f2b5c2663799d64304.jpg') center/cover no-repeat; z-index: -1; } header h1 { font-size: 48px; margin-bottom: 16px; } header p { font-size: 18px; max-width: 700px; margin: auto; } section { padding: 80px 20px; } .container { max-width: 1200px; margin: auto; } h2 { font-size: 36px; margin-bottom: 40px; text-align: center; } h3 { font-size: 24px; margin-bottom: 20px; text-align: center; } .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; } .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); text-align: center; } .price { font-size: 40px; font-weight: 700; color: var(--brand); } 
-         /* SCROLL CONTAINER */ 
-         .scroll-container { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 15px; } .scroll-card { flex-shrink: 0; min-width: 380px; height: 280px; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 15px 30px rgba(0,0,0,0.08); } .scroll-card iframe { width: 100%; height: 100%; border: none; } .overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(11,42,74,0.9); color: white; padding: 8px; text-align: center; font-weight: 600; text-decoration: none; display: block; } 
-         /* CLIENT LOGO SCROLL */ 
-         .logo-strip { overflow: hidden; } .logo-track { display: flex; gap: 60px; animation: scroll 30s linear infinite; } .logo-track img { height: 60px; } @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } } footer { background: var(--dark); color: white; text-align: center; padding: 50px 20px; } 
+<head>
 
-/* Mobile-friendly dashboard stacking */
-@media (max-width: 768px) {
-  #dashboards .scroll-container {
-    display: block;      /* stack items vertically */
-    overflow-x: visible; /* remove horizontal scroll */
-    padding-bottom: 0;
-  }
+  <!-- ==========================================
+       META DATA
+  ========================================== -->
 
-  #dashboards .scroll-card {
-    min-width: 100%;     /* take full width */
-    height: auto;        /* adjust height automatically */
-    margin-bottom: 20px; /* spacing between cards */
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  #dashboards .scroll-card iframe {
-    height: 300px;       /* fixed height for iframe on mobile */
-  }
-}
+  <title>Dashify | Business Monitoring at Your Fingertips</title>
 
-         /* Add spacing between Tableau and Power BI sections */
-#dashboards .scroll-container + h3 {
-  margin-top: 50px; /* adjust gap as needed */
-}
+  <meta name="description"
+        content="Dashify builds Power BI and Tableau dashboards that transform data into actionable business insights.">
 
+  <!-- ==========================================
+       GOOGLE FONTS
+  ========================================== -->
 
-         
-header h1 {
-  font-size: 48px;
-  margin: 0;           /* remove extra spacing below header */
-  line-height: 1;      /* minimal spacing for the first line */
-  text-align: center;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-.hero-light {
-  font-weight: 400;    /* normal weight */
-  font-style: italic;  /* italic */
-  display: block;
-  font-size: 42px;     /* slightly smaller */
-  margin: 0;           /* remove extra space */
-  line-height: 1;      /* almost touching */
-}
+  <!-- ==========================================
+       CSS
+  ========================================== -->
 
+  <style>
 
-         .hero-title {
-  line-height: 0.95; /* very tight line spacing */
-}
+    /* ==========================================
+       VARIABLES
+    ========================================== */
 
-.hero-bold {
-  font-weight: 700;
-}
+    :root {
+      --brand: #0b2a4a;
+      --brand-light: #143a63;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --text: #334155;
+      --muted: #64748b;
 
-.hero-italic {
-  font-style: normal;   /* removes italic */
-  font-weight: 400;     /* lighter than bold */
-}
+      --radius: 20px;
+      --shadow: 0 20px 40px rgba(0,0,0,0.05);
 
-
-         
-/* Heading above contact icons */
-.contact-heading {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #0b2a4a;
-  font-weight: 700;
-}
-
-/* What We Do Grid */
-.services-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.solutions-card {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin: 20px auto 0;
-  padding: 40px 50px;
-}
-
-.solutions-card h3 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.solutions-card ul {
-  max-width: 750px;
-  margin: 0 auto;
-  padding-left: 30px;
-  text-align: left;
-  line-height: 2.3;
-  font-size: 17px;
-}
-
-.solutions-card li {
-  margin-bottom: 12px;
-}
-
-/* Custom PNG icons */
-.service-icon {
-  text-align: center;
-  margin-bottom: 20px;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-.service-image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-         
-/* CONTACT GRID */
-.contact-grid {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  align-items: stretch; /* same height */
-}
-
-/* LEFT FORM */
-.contact-form {
-  flex: 2 1 400px;
-}
-
-/* Make textarea same height as inputs */
-.contact-form form input,
-.contact-form form textarea {
-  height: 50px;
-  padding: 16px;
-  font-size: 16px;
-  border-radius: 12px;
-  border: 1px solid #d1d5db;
-  width: 100%;
-  margin-bottom: 16px;
-  resize: none;
-}
-
-/* WHO WE SERVE */
-
-.industries-marquee {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-}
-
-.industries-track {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  animation: scrollIndustries 30s linear infinite;
-}
-
-.industries-track span {
-  font-size: 24px;
-  font-weight: 600;
-  color: #0b2a4a;
-  white-space: nowrap;
-}
-
-.separator {
-  margin: 0 30px;
-  font-size: 34px;
-  font-weight: 700;
-  color: #0b2a4a;
-}
-
-@keyframes scrollIndustries {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-         
-         
-/* CONTACT BUTTON */
-.contact-form form .contact-button {
-  margin-top: 10px;
-}
-
-/* RIGHT CONTACT INFO BOXES */
-.contact-info {
-  flex: 1 1 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* vertically center the boxes to match form height */
-}
-
-.contact-boxes {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* closer spacing between boxes */
-  align-items: stretch;
-}
-
-.contact-box {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  background: #0b2a4a;
-  border-radius: 16px;
-  color: white;
-  font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.contact-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.contact-icon {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.contact-icon svg {
-  width: 28px;
-  height: 28px;
-}
-
-.contact-text {
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-/* Default grid (used by About Us) = 3 columns */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-/* Special 4-column grid for What We Do only */
-.services-grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .services-grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .services-grid,
-  .services-grid-4 {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-         
-/* Responsive: stack on mobile */
-@media (max-width: 900px) {
-  .contact-grid {
-    flex-direction: column-reverse; /* form first, icons below */
-  }
-  .contact-info {
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .contact-boxes {
-    gap: 15px;
-  }
-}
-
-.about-features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  margin-top: 40px;
-}
-
-.about-box {
-  background: #f8fafc;
-  padding: 30px 25px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-}
-
-.about-icon {
-  font-size: 36px;
-  margin-bottom: 12px;
-}
-
-.about-box h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #0b2a4a;
-}
-
-.about-box p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #475569;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .about-features {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-         
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.dashboard-column h3 {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.dashboard-card {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  background: #fff;
-}
-
-.dashboard-card iframe {
-  width: 100%;
-  height: 420px;
-  border: none;
-}
-
-.dashboard-card .overlay {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: rgba(15, 23, 42, 0.9);
-  color: white;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.dashboard-card .overlay:hover {
-  background: rgba(15, 23, 42, 1);
-}
-
-/* Mobile responsive */
-@media (max-width: 900px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-      
-      </style>
-   </head>   
-<script>
-  function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('show');
-  }
-
-  // Robust smooth scrolling without URL hash
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", function (e) {
-        const id = this.getAttribute("href");
-
-        if (id.length > 1) {
-          const target = document.querySelector(id);
-          if (target) {
-            e.preventDefault();
-
-            const yOffset = -80; // adjust if you have sticky nav
-            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-            window.scrollTo({
-              top: y,
-              behavior: "smooth"
-            });
-
-            // Remove hash from URL
-            history.pushState("", document.title, window.location.pathname);
-
-            // Close mobile menu
-            const navLinks = document.getElementById('navLinks');
-            if (navLinks) navLinks.classList.remove('show');
-          }
-        }
-      });
-    });
-  });
-</script>
-
-
-   <script>
-function toggleService(element) {
-
-  const content =
-    element.nextElementSibling;
-
-  if (content.style.maxHeight) {
-    content.style.maxHeight = null;
-  } else {
-    content.style.maxHeight =
-      content.scrollHeight + "px";
-  }
-
-}
-</script>
-
-   
-   <body>
-
-  <script>
-    const correctPassword = "46";  // change this
-    const input = prompt("Code:");
-
-    if (input !== correctPassword) {
-      document.body.innerHTML = `
-        <div style="
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          height:100vh;
-          font-family:Inter, sans-serif;
-          background:#0f172a;
-          color:white;
-          font-size:22px;">
-          Access denied
-        </div>
-      `;
-      throw new Error("Unauthorized");
+      --container-width: 1200px;
     }
-  </script>
 
-      <nav>
-         <div class="logo"> <img src="logo.png"> Dashify </div>
-         <div class="hamburger" onclick="toggleMenu()">☰</div>
-         <div class="nav-links" id="navLinks"> <a href="#home">Home</a> 
-            
-            <a href="#what-we-do">What We Do</a> 
-            
-            <a href="#dashboards">Dashboards</a>
-            
-            <a href="#pricing">Products</a>
+    /* ==========================================
+       RESET
+    ========================================== */
 
-            <a href="#meet-the-team">Meet the Team</a> 
-            
-            <a href="#contact">Contact Us</a> </div>
-      </nav>
-      <header id="home">
-         <div class="hero-bg"></div>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-         
-<h1 class="hero-title">
-<!--  <span class="hero-bold">Business Monitoring</span><br>  --> 
-  <span class="hero-italic">Transform Your Business Data Into Actionable Insights</span>
-</h1>
-         
-         <p>Custom Power BI and Tableau dashboards that help businesses monitor performance, identify trends, and make better decisions.</p>
-      </header>
-  
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* ==========================================
+       TYPOGRAPHY
+    ========================================== */
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      text-align: center;
+      color: var(--brand);
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .section-intro {
+      max-width: 850px;
+      margin: 0 auto 50px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* ==========================================
+       NAVIGATION
+    ========================================== */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15,23,42,0.98);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      color: white;
+      font-size: 26px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* ==========================================
+       HAMBURGER
+    ========================================== */
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 28px;
+    }
+
+    /* ==========================================
+       HERO
+    ========================================== */
+
+    .hero {
+      background: var(--brand);
+      color: white;
+      text-align: center;
+      padding: 140px 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 20px;
+    }
+
+    /* ==========================================
+     SERVICES
+    ========================================== */
+
+    .services-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .service-image {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .solutions-card {
+      max-width: 1100px;
+      margin: 40px auto 0;
+    }
+    
+   /* ==========================================
+       EXPLORE OUR WORK (DASHBOARDS)
+    ========================================== */
+
+    .explore-work {
+      margin-top: 30px;
+      text-align: center; /* centers "Explore Our Work" */
+    }
+
+    .explore-work h3 {
+      margin-bottom: 15px;
+    }
+
+    .icon-links {
+      display: flex;
+      justify-content: center; /* centers icons horizontally */
+      align-items: center;
+      gap: 20px;
+    }
+
+    .bi-icon {
+      width: 45px;
+      height: auto;
+      transition: transform 0.2s ease;
+    }
+
+    .bi-icon:hover {
+      transform: scale(1.1);
+    }
+    
+    
+    /* ==========================================
+       ABOUT US
+    ========================================== */
+
+    .about-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 50px;
+      text-align: center;
+    }
+
+    .about-card p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ==========================================
+       CONTACT
+    ========================================== */
+
+    .contact-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+
+    .contact-email {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-email a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-email a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      padding: 14px 18px;
+      border: 1px solid #dbe2ea;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* ==========================================
+       BUTTONS
+    ========================================== */
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      background: white;
+      color: var(--brand);
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    /* ==========================================
+       CARDS
+    ========================================== */
+
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    /* ==========================================
+       MOBILE NAVIGATION
+    ========================================== */
+
+    @media (max-width: 768px) {
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        padding: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero {
+        padding: 100px 20px;
+      }
       
-<!-- WHAT WE DO -->
-<section id="what-we-do" style="background:#f8fafc;">
+      .services-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ==========================================
+       NAVIGATION
+  ========================================== -->
+
+  <nav>
+
+    <div class="container navbar">
+
+      <a href="#home" class="logo">
+        Dashify
+      </a>
+
+      <div class="hamburger" id="hamburger">
+        ☰
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#what-we-do">What We Do</a>
+        <a href="#dashboards">Dashboards</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- ==========================================
+       HERO
+  ========================================== -->
+
+  <header id="home" class="hero">
+
+    <div class="container">
+
+      <h1>Transform Your Business Data Into Actionable Insights</h1>
+
+      <p>
+        Custom Power BI and Tableau dashboards that help businesses monitor performance, identify trends, and make informed decisions.
+      </p>
+
+      <a href="#contact" class="button">
+        Contact Us
+      </a>
+
+    </div>
+
+  </header>
+
+<!-- ==========================================
+     WHAT WE DO
+========================================== -->
+
+<section id="what-we-do">
+
   <div class="container">
 
     <h2>What We Do</h2>
 
-    <!-- INTRO -->
-    <p style="
-      max-width:900px;
-      margin:0 auto 50px;
-      font-size:18px;
-      line-height:1.8;
-      color:#475569;
-      text-align:center;">
+    <p class="section-intro">
       At Dashify, we help businesses transform complex data into clear, actionable insights through custom Power BI and Tableau solutions. By bringing together data from multiple sources into a single view, we help organisations improve monitoring capabilities, streamline reporting, and make informed decisions.
     </p>
 
-    <!-- SERVICE CARDS -->
     <div class="services-grid services-grid-3">
 
-   <!-- DATA SETUP -->
-<div class="service-card">
+      <!-- DATA SETUP -->
+      <div class="service-card">
 
-  <div class="service-icon">
-    <img src="icon_datas.png"
-         alt="Data Setup"
-         class="service-image">
-  </div>
+        <div class="service-icon">
+          <img
+            src="icon_datas.png"
+            alt="Data Setup"
+            class="service-image">
+        </div>
 
-  <h3>Data Setup</h3>
+        <h3>Data Setup</h3>
 
-  <p>
-    We establish reliable data connections and infrastructure that support automated updates, seamless integrations, and scalable reporting solutions.
-  </p>
-
-</div>
-
-<div class="service-card">
-
-  <div class="service-icon">
-    <img src="icon_dashboard.png"
-         alt="Interactive Dashboards"
-         class="service-image">
-  </div>
-
-  <h3>Interactive Dashboards</h3>
-
-  <p>
-    We design and build intuitive dashboards that enable users to monitor performance, explore trends, and access the insights most relevant to their role.
-  </p>
-
-</div>
-
-<div class="service-card">
-
-  <div class="service-icon">
-    <img src="icon_report.png"
-         alt="Automated Reporting"
-         class="service-image">
-  </div>
-
-  <h3>Automated Reporting</h3>
-
-  <p>
-    We configure dashboard refreshes, reducing manual reporting effort and ensuring decision-makers always have access to current information.
-  </p>
-
-</div>
-       
-    <!-- BENEFITS LIST -->
-<div class="service-card solutions-card">
-
-  <h3>Our Solutions Help You</h3>
-
-  <ul>
-    <li>Visualise complex business data through intuitive dashboards</li>
-    <li>Monitor KPIs and business performance in real time</li>
-    <li>Automate reporting and reduce manual processes</li>
-    <li>Bring together data from multiple sources into a single view</li>
-    <li>Enable interactive filtering and drill-down analysis</li>
-    <li>Improve decision-making through business intelligence and analytics</li>
-   <li>Access dashboards seamlessly across desktop and mobile devices</li>
-  </ul>
-
-</div>
-
-</div>
-<!-- WHO WE SERVE -->
-<section id="industries" style="background:#eef2f7;">
-  <div class="container">
-
-    <h2>Who We Serve</h2>
-
-    <p style="
-      max-width:850px;
-      margin:0 auto 50px;
-      text-align:center;
-      font-size:18px;
-      line-height:1.8;
-      color:#475569;">
-      We develop dashboard and business intelligence solutions for organisations across a wide range of industries, helping teams monitor performance, uncover insights, and make data-driven decisions.
-    </p>
-
-    <div class="industries-marquee">
-      <div class="industries-track">
-
-        <span>Retail</span>
-        <span class="separator">•</span>
-
-        <span>Finance</span>
-        <span class="separator">•</span>
-
-        <span>Healthcare</span>
-        <span class="separator">•</span>
-
-        <span>Travel & Tourism</span>
-        <span class="separator">•</span>
-
-        <span>Sports</span>
-        <span class="separator">•</span>
-
-        <span>NGOs</span>
-        <span class="separator">•</span>
-
-        <span>E-Commerce</span>
-        <span class="separator">•</span>
-
-        <span>Education</span>
-        <span class="separator">•</span>
-
-        <span>Manufacturing</span>
-        <span class="separator">•</span>
-
-        <span>Logistics</span>
-        <span class="separator">•</span>
-
-        <span>Property</span>
-        <span class="separator">•</span>
-
-        <span>Professional Services</span>
-        <span class="separator">•</span>
-
-        <!-- Duplicate for seamless scrolling -->
-
-        <span>Retail</span>
-        <span class="separator">•</span>
-
-        <span>Finance</span>
-        <span class="separator">•</span>
-
-        <span>Healthcare</span>
-        <span class="separator">•</span>
-
-        <span>Travel & Tourism</span>
-        <span class="separator">•</span>
-
-        <span>Sports</span>
-        <span class="separator">•</span>
-
-        <span>NGOs</span>
-        <span class="separator">•</span>
-
-        <span>E-Commerce</span>
-        <span class="separator">•</span>
-
-        <span>Education</span>
-        <span class="separator">•</span>
-
-        <span>Manufacturing</span>
-        <span class="separator">•</span>
-
-        <span>Logistics</span>
-        <span class="separator">•</span>
-
-        <span>Property</span>
-        <span class="separator">•</span>
-
-        <span>Professional Services</span>
-        <span class="separator">•</span>
+        <p>
+          We establish reliable data connections and infrastructure that support automated updates, seamless integrations, and scalable reporting solutions.
+        </p>
 
       </div>
+
+      <!-- INTERACTIVE DASHBOARDS -->
+      <div class="service-card">
+
+        <div class="service-icon">
+          <img
+            src="icon_dashboard.png"
+            alt="Interactive Dashboards"
+            class="service-image">
+        </div>
+
+        <h3>Interactive Dashboards</h3>
+
+        <p>
+          We design and build intuitive dashboards that enable users to monitor performance, explore trends, and access the insights most relevant to their role.
+        </p>
+
+      </div>
+
+      <!-- AUTOMATED REPORTING -->
+      <div class="service-card">
+
+        <div class="service-icon">
+          <img
+            src="icon_report.png"
+            alt="Automated Reporting"
+            class="service-image">
+        </div>
+
+        <h3>Automated Reporting</h3>
+
+        <p>
+          We configure dashboard refreshes, reducing manual reporting effort and ensuring decision-makers always have access to current information.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- HOW WE HELP -->
+
+    <div class="service-card solutions-card">
+
+      <h3>Our Solutions Help You</h3>
+
+      <ul>
+        <li>Visualise complex business data through intuitive dashboards</li>
+        <li>Monitor KPIs and business performance in real time</li>
+        <li>Automate reporting and reduce manual processes</li>
+        <li>Bring together data from multiple sources into a single view</li>
+        <li>Enable interactive filtering and drill-down analysis</li>
+        <li>Improve decision-making through business intelligence and analytics</li>
+        <li>Access dashboards seamlessly across desktop and mobile devices</li>
+      </ul>
+
     </div>
 
   </div>
+
 </section>
 
+<!-- ==========================================
+     DASHBOARDS
+========================================== -->
 
-     
-<!-- DASHBOARDS -->       
 <section id="dashboards">
+
   <div class="container">
+
     <h2>Dashboards</h2>
 
-    <p style="max-width:800px; margin:10px auto 40px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
-      Explore how we transform data into insightful dashboards using Tableau or Power BI.
+    <p class="section-intro">
+      We create tailored dashboards using your preferred business intelligence platform, with particular expertise in Microsoft Power BI and Tableau. By bringing together data from multiple sources, we transform complex information into intuitive, interactive dashboards that help organisations monitor performance, identify trends, and make informed decisions. Our solutions are designed to be accessible across desktop and mobile devices, ensuring key business insights are always at your fingertips.
     </p>
 
-    <div class="dashboard-grid">
+    <!-- Explore Our Work -->
+    <div class="explore-work">
+      <h3>Explore Our Work</h3>
 
-      <!-- Tableau -->
-      <div class="dashboard-column">
-        <h3>Tableau</h3>
-        <div class="dashboard-card">
-          <iframe src="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"></iframe>
-          <a class="overlay" href="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy" target="_blank">
-            View Tableau Dashboard →
-          </a>
-        </div>
+      <div class="icon-links">
+
+        <!-- Power BI -->
+        <a href="https://powerbi.com" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="icon_pbi.png" 
+            alt="Power BI"
+            class="bi-icon"
+          />
+        </a>
+
+        <!-- Tableau -->
+        <a href="https://tableau.com" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="icon_tableau.png" 
+            alt="Tableau"
+            class="bi-icon"
+          />
+        </a>
+
       </div>
-
-      <!-- Power BI -->
-      <div class="dashboard-column">
-        <h3>Power BI</h3>
-        <div class="dashboard-card">
-          <iframe title="Ecommerce" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=d47e89dc-95aa-494e-b40c-ee55771a76cc&autoAuth=true&ctid=8004bbe8-7435-4d7f-8218-9434dfcfc51f" frameborder="0" allowFullScreen="true"></iframe>
-          <a class="overlay" href="https://app.powerbi.com/reportEmbed?reportId=d47e89dc-95aa-494e-b40c-ee55771a76cc&autoAuth=true&ctid=8004bbe8-7435-4d7f-8218-9434dfcfc51f" target="_blank">
-            View Power BI Dashboard →
-          </a>
-        </div>
-      </div>
-
     </div>
+
   </div>
+
 </section>
 
-      
-      <!-- PACKAGES --> 
-<section id="pricing">
-  <div class="container">
-    <h2>Products</h2>
+  <!-- ==========================================
+       PRICING
+  ========================================== -->
 
-    <p style="max-width:800px; margin:0 auto 50px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
-      Choose the analytics platform that best fits your business. Both packages include professional design, insights, and implementation support.
-    </p>
+  <section id="pricing">
 
-       <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); max-width:1200px; margin:0 auto;">
+    <div class="container">
 
+      <h2>Pricing</h2>
 
-      <!-- TABLEAU PACKAGE -->
-      <div class="card">
-        <div class="service-icon" style="margin: 0 auto 20px;">
-     <!--      <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <path d="M21 3s-6 0-10 4-4 10-4 10 6 0 10-4 4-10 4-10z"/>
-            <path d="M5 19c4-4 7-7 12-12"/>
-          </svg> -->
+      <p class="section-intro">
+        Add pricing packages here.
+      </p>
 
-           <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-  <path d="M5 15a7 7 0 1 1 14 0" />
-  <path d="M12 12l3.5-2.5" />
-  <circle cx="12" cy="12" r="1" />
-</svg>
+    </div>
 
-        </div>
+  </section>
 
-        <h3>Tableau Package</h3>
-        <p class="price">Custom</p>
+  <!-- ==========================================
+       ABOUT US
+  ========================================== -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <h2>About Us</h2>
+
+      <div class="about-card">
+
         <p>
-          Custom developed Tableau dashboards designed for monitoring, exploration and reporting.
-          Includes data modelling, design, scheduled refreshes and publishing to Tableau Cloud or Server.
+          At Dashify, we are passionate about helping organisations unlock the full value of their data. With a combined 13 years of experience in data analytics, reporting, and business intelligence, we specialise in transforming complex information into clear, intuitive visualisations that support better decision-making.
         </p>
-      </div>
 
-      <!-- POWER BI PACKAGE -->
-      <div class="card">
-      <div class="service-icon" style="margin: 0 auto 20px;">
-    <!--  <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <path d="M12 2l5 8h-3l4 6h-5l3 6h-8l3-6H6l4-6H7l5-8z"/>
-            <path d="M12 22v-4"/>
-          </svg> -->
-           
-<svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-  <!-- Bars -->
-  <path d="M6 20V13" />
-  <path d="M12 20V9" />
-  <path d="M18 20V5" />
-  
-  <!-- Baseline -->
-  <path d="M3 20H21" />
-</svg>
-
-        </div>
-
-        <h3>Power BI Package</h3>
-        <p class="price">Custom</p>
         <p>
-          Custom developed Power BI dashboards for designed monitoring, exploration and reporting.
-         Includes data modelling, design and deployment within Microsoft ecosystems support.
+          Our expertise spans a range of leading analytics and visualisation platforms, including Microsoft Power BI and Tableau, enabling us to deliver solutions tailored to each client's unique requirements. By bridging the gap between valuable captured data and meaningful insights, we help businesses improve visibility, monitor performance, and make confident, data-driven decisions.
         </p>
+
       </div>
 
     </div>
-  </div>
-</section>
 
-    
-<!-- MEET THE TEAM --> 
-<section id="meet-the-team" style="background:#eef2f7;">
-  <div class="container">
-    <h2>Meet the Team</h2>
+  </section>
 
-    <p style="font-size:18px; line-height:1.6; text-align:center; max-width:900px; margin:0 auto 60px;">
-      With a combined 13 years of experience in data analytics, and a range of software skills, we help customers bridge the gap between valuable captured data and insightful data visualisation.
-    </p>
 
-    <!-- ABOUT FEATURE CARDS -->
-    <div class="services-grid">
+  <!-- ==========================================
+       CONTACT US
+  ========================================== -->
 
-      <!-- Expert Team -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <circle cx="9" cy="7" r="3"/>
-            <circle cx="17" cy="7" r="3"/>
-            <path d="M2 21v-1a6 6 0 0 1 12 0v1"/>
-            <path d="M14 20v-1a6 6 0 0 1 8 0v1"/>
-          </svg>
-        </div>
-        <h3>Expert Team</h3>
-        <p>Seasoned professionals with deep expertise in data analytics and visualization across multiple platforms.</p>
-      </div>
+  <section id="contact">
 
-      <!-- Diverse Experience -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M2 12h20"/>
-            <path d="M12 2a15 15 0 0 1 0 20"/>
-            <path d="M12 2a15 15 0 0 0 0 20"/>
-          </svg>
-        </div>
-        <h3>Diverse Experience</h3>
-        <p>We've worked with a range of industries, from NGOs to local retail startups, delivering impactful solutions.</p>
-      </div>
-      
-      <!-- Varied Data Types -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="3" y="3" width="7" height="7"/>
-            <rect x="14" y="3" width="7" height="7"/>
-            <rect x="3" y="14" width="7" height="7"/>
-            <rect x="14" y="14" width="7" height="7"/>
-          </svg>
-        </div>
-        <h3>Varied Data Types</h3>
-        <p>From social survey data to satellite imagery, we've visualised various types of complex data sets.</p>
-      </div>
+    <div class="container">
 
-    </div>
-  </div>
-</section>
+      <h2>Contact Us</h2>
 
-      
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <h2 class="center">Contact Us</h2>
+      <p class="section-intro">
+       Get in touch to discuss your reporting, analytics, and dashboard requirements. We'll work with you to develop a solution tailored to your business needs.
+      </p>
 
-    <!-- NEW INTRO TEXT -->
-    <p style="max-width:800px; margin:10px auto 50px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
-      Ready to transform your data into insights? Get in touch with us today.
-    </p>
+      <div class="contact-card">
 
-    <div class="contact-grid">
+        <form>
 
-      <!-- LEFT: FORM -->
-      <div class="contact-form">
-        <div class="card">
-          <form>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea placeholder="Your Message" rows="1" required></textarea>
-            <button type="submit" class="contact-button">Send Message</button>
-          </form>
-        </div>
-      </div>
+          <input
+            type="text"
+            placeholder="Name"
+            required>
 
-      <!-- RIGHT: ICON BOXES -->
-      <div class="contact-info">
-        <h3 class="contact-heading">Get In Touch</h3>
-        <div class="contact-boxes">
-          <!-- Email -->
-          <a href="mailto:info@dashify.co.za" class="contact-box">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M21 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8"/>
-              </svg>
-            </div>
-            <div class="contact-text"><strong>Email:</strong> info@dashify.co.za</div>
+          <input
+            type="text"
+            placeholder="Company Name">
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            required>
+
+          <textarea
+            placeholder="Tell us about your requirements..."
+            required>
+          </textarea>
+
+          <button type="submit" class="button">
+            Send Message
+          </button>
+
+        </form>
+
+        <div class="contact-email">
+
+          <strong>Email:</strong>
+
+          <a href="mailto:info@dashify.co.za">
+            info@dashify.co.za
           </a>
-           
-  <!--
-           <!-- Phone -->
-          <a href="tel:+27821231234" class="contact-box">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.81.36 1.6.72 2.34l-.94.94a16 16 0 0 0 6.12 6.12l.94-.94c.74.36 1.53.6 2.34.72A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <div class="contact-text"><strong>Phone:</strong> +27 82 123 1234</div>
-          </a>
-           -->
 
-           
-          <!-- Location -->
-          <div class="contact-box">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4.5 8-11a8 8 0 1 0-16 0c0 6.5 8 11 8 11z"/>
-              </svg>
-            </div>
-            <div class="contact-text"><strong>Location:</strong> Remote worldwide</div>
-          </div>
         </div>
+
       </div>
 
     </div>
-  </div>
-</section>
+
+  </section>
 
 
-<!--
-CLIENTS (FULL-WIDTH)
-<section id="clients" style="background:#eef2f7;">
-  <div class="container">
-    <h2>Our Clients</h2>
+  <!-- ==========================================
+       FOOTER
+  ========================================== -->
 
-    <p style="max-width:800px; margin:10px auto 40px; font-size:18px; line-height:1.6; color:#475569; text-align:center;">
-      We've partnered with innovative companies across South Africa.
+  <footer>
+
+    <p>
+     © <span id="year"></span> Dashify. All rights reserved.
     </p>
 
-    <div class="logo-strip">
-      <div class="logo-track">
-        <img src="logo_1.png">
-        <img src="logo_2.png">
-        <img src="logo_3.png">
-        <img src="logo_1.png">
-        <img src="logo_2.png">
-        <img src="logo_3.png">
-        <img src="logo_1.png">
-        <img src="logo_2.png">
-        <img src="logo_3.png">
-      </div>
-    </div>
-  </div>
-</section>
--->
+  </footer>
 
+  <!-- ==========================================
+       JAVASCRIPT
+  ========================================== -->
 
-<!-- FOOTER (FULL-WIDTH) -->
-<footer>
-  <p>© 2026 Dashify. All rights reserved.</p>
-</footer>
+  <script>
 
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
 
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
+	 document.getElementById("year").textContent = new Date().getFullYear();
+     
+  </script>
 
+</body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
