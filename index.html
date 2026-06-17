@@ -114,7 +114,7 @@ header h1 {
 
 .solutions-card {
   grid-column: 1 / -1;
-  width: 80%;
+  width: 100%;
   margin: 20px auto 0;
   padding: 40px 50px;
 }
@@ -187,6 +187,56 @@ header h1 {
   resize: none;
 }
 
+/* WHO WE SERVE */
+
+.industries-marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.industries-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scrollIndustries 35s linear infinite;
+}
+
+.industry-card {
+  flex-shrink: 0;
+  background: white;
+  min-width: 180px;
+  padding: 25px 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.industry-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.industry-card span {
+  display: block;
+  font-weight: 600;
+  color: #0b2a4a;
+  font-size: 16px;
+}
+
+@keyframes scrollIndustries {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+         
 /* CONTACT BUTTON */
 .contact-form form .contact-button {
   margin-top: 10px;
@@ -572,7 +622,139 @@ function toggleService(element) {
 </div>
 
 </div>
-      
+
+
+<!-- WHO WE SERVE -->
+<section id="industries" style="background:#eef2f7;">
+  <div class="container">
+
+    <h2>Who We Serve</h2>
+
+    <p style="
+      max-width:850px;
+      margin:0 auto 50px;
+      text-align:center;
+      font-size:18px;
+      line-height:1.8;
+      color:#475569;">
+      We develop dashboard and business intelligence solutions for organisations across a wide range of industries, helping teams monitor performance, uncover insights, and make data-driven decisions.
+    </p>
+
+    <div class="industries-marquee">
+      <div class="industries-track">
+
+        <!-- Retail -->
+        <div class="industry-card">
+          <img src="icon_retail.png" alt="Retail">
+          <span>Retail</span>
+        </div>
+
+        <!-- Finance -->
+        <div class="industry-card">
+          <img src="icon_finance.png" alt="Finance">
+          <span>Finance</span>
+        </div>
+
+        <!-- Healthcare -->
+        <div class="industry-card">
+          <img src="icon_healthcare.png" alt="Healthcare">
+          <span>Healthcare</span>
+        </div>
+
+        <!-- Travel -->
+        <div class="industry-card">
+          <img src="icon_travel.png" alt="Travel">
+          <span>Travel</span>
+        </div>
+
+        <!-- Sports -->
+        <div class="industry-card">
+          <img src="icon_sports.png" alt="Sports">
+          <span>Sports</span>
+        </div>
+
+        <!-- NGOs -->
+        <div class="industry-card">
+          <img src="icon_ngo.png" alt="NGOs">
+          <span>NGOs</span>
+        </div>
+
+        <!-- E-Commerce -->
+        <div class="industry-card">
+          <img src="icon_ecommerce.png" alt="E-Commerce">
+          <span>E-Commerce</span>
+        </div>
+
+        <!-- Education -->
+        <div class="industry-card">
+          <img src="icon_education.png" alt="Education">
+          <span>Education</span>
+        </div>
+
+        <!-- Manufacturing -->
+        <div class="industry-card">
+          <img src="icon_manufacturing.png" alt="Manufacturing">
+          <span>Manufacturing</span>
+        </div>
+
+        <!-- Logistics -->
+        <div class="industry-card">
+          <img src="icon_logistics.png" alt="Logistics">
+          <span>Logistics</span>
+        </div>
+
+        <!-- Property -->
+        <div class="industry-card">
+          <img src="icon_property.png" alt="Property">
+          <span>Property</span>
+        </div>
+
+        <!-- Professional Services -->
+        <div class="industry-card">
+          <img src="icon_services.png" alt="Professional Services">
+          <span>Professional Services</span>
+        </div>
+
+        <!-- DUPLICATE SET FOR CONTINUOUS SCROLL -->
+
+        <div class="industry-card">
+          <img src="icon_retail.png" alt="Retail">
+          <span>Retail</span>
+        </div>
+
+        <div class="industry-card">
+          <img src="icon_finance.png" alt="Finance">
+          <span>Finance</span>
+        </div>
+
+        <div class="industry-card">
+          <img src="icon_healthcare.png" alt="Healthcare">
+          <span>Healthcare</span>
+        </div>
+
+        <div class="industry-card">
+          <img src="icon_travel.png" alt="Travel">
+          <span>Travel</span>
+        </div>
+
+        <div class="industry-card">
+          <img src="icon_sports.png" alt="Sports">
+          <span>Sports</span>
+        </div>
+
+        <div class="industry-card">
+          <img src="icon_ngo.png" alt="NGOs">
+          <span>NGOs</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+     
 <!-- DASHBOARDS -->       
 <section id="dashboards">
   <div class="container">
