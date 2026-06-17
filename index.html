@@ -241,6 +241,48 @@
       transform: scale(1.1);
     }
     
+    /* ==========================================
+    	PRICING
+    ========================================== */
+    
+        .pricing-table {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    .pricing-table table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+      padding: 18px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .pricing-table th {
+      background: var(--brand);
+      color: white;
+      font-weight: 600;
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .section-note {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     
     /* ==========================================
        ABOUT US
@@ -589,23 +631,77 @@
 
 </section>
 
-  <!-- ==========================================
-       PRICING
-  ========================================== -->
+<!-- ==========================================
+     PRICING
+========================================== -->
 
-  <section id="pricing">
+<section id="pricing">
 
-    <div class="container">
+  <div class="container">
 
-      <h2>Pricing</h2>
+    <h2>Pricing</h2>
 
-      <p class="section-intro">
-        Add pricing packages here.
-      </p>
+    <p class="section-intro">
+      Our pricing is tailored to the scope and complexity of each project. Factors such as data sources, dashboard complexity, level of interactivity, and ongoing support requirements all influence the final cost. We work closely with clients to define clear deliverables and ensure transparent, value-driven pricing.
+    </p>
+
+    <div class="pricing-table">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Service Option</th>
+            <th>What’s Included</th>
+            <th>Typical Scope</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td><strong>Project Scope & Consultation</strong></td>
+            <td>
+              Requirements gathering, data assessment, solution design, and platform recommendation (Power BI / Tableau)
+            </td>
+            <td>
+              One-time engagement to define project requirements
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Dashboard Development & Delivery</strong></td>
+            <td>
+              Design and build of interactive dashboards, data modelling, visualisation development, and deployment
+            </td>
+            <td>
+              Based on number of dashboards, data sources, and complexity
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Maintenance & Support</strong></td>
+            <td>
+              Ongoing dashboard updates, data refresh monitoring, enhancements, and technical support
+            </td>
+            <td>
+              Monthly or ad-hoc support packages available
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
 
     </div>
 
-  </section>
+    <p class="section-note">
+      Final pricing is provided after an initial consultation and is fully dependent on project requirements and scope.
+    </p>
+
+  </div>
+
+</section>
 
   <!-- ==========================================
        ABOUT US
