@@ -136,11 +136,11 @@
       text-decoration: none;
 	  display: flex;
 	  align-items: center;
-	  gap: 10px;
+	  gap: 8px;
     }
 
 	.logo-img {
-	  width: 64px;   
+	  width: 76px;   
 	  height: auto;
 	}
 
@@ -225,7 +225,30 @@
       max-width: 1100px;
       margin: 40px auto 0;
     }
-    
+
+	.tick-list {
+	  list-style: none;
+	  padding: 0;
+	  margin: 0 auto;
+	  display: table; /* key trick: keeps block centered */
+	  text-align: left; /* keeps text aligned neatly next to ticks */
+	}
+	
+	.tick-list li {
+	  position: relative;
+	  padding-left: 28px;
+	  margin: 10px 0;
+	  line-height: 1.6;
+	}
+	
+	/* Black tick */
+	.tick-list li::before {
+	  content: "✓";
+	  position: absolute;
+	  left: 0;
+	  color: black;
+	  font-weight: bold;
+	}
    /* ==========================================
        EXPLORE OUR WORK (DASHBOARDS)
     ========================================== */
@@ -586,15 +609,15 @@
 
       <h3>Our Solutions Help You</h3>
 
-      <ul>
-        <li>Visualise complex business data through intuitive dashboards</li>
-        <li>Monitor KPIs and business performance in real time</li>
-        <li>Automate reporting and reduce manual processes</li>
-        <li>Bring together data from multiple sources into a single view</li>
-        <li>Enable interactive filtering and drill-down analysis</li>
-        <li>Improve decision-making through business intelligence and analytics</li>
-        <li>Access dashboards seamlessly across desktop and mobile devices</li>
-      </ul>
+		<ul class="tick-list">
+		  <li>Visualise complex business data through intuitive dashboards</li>
+		  <li>Monitor KPIs and business performance in real time</li>
+		  <li>Automate reporting and reduce manual processes</li>
+		  <li>Bring together data from multiple sources into a single view</li>
+		  <li>Enable interactive filtering and drill-down analysis</li>
+		  <li>Improve decision-making through business intelligence and analytics</li>
+		  <li>Access dashboards seamlessly across desktop and mobile devices</li>
+		</ul>
 
     </div>
 
