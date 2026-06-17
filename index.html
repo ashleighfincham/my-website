@@ -134,7 +134,15 @@
       font-size: 26px;
       font-weight: 700;
       text-decoration: none;
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
     }
+
+	.logo-img {
+	  width: 32px;   
+	  height: auto;
+	}
 
     .nav-links {
       display: flex;
@@ -457,9 +465,10 @@
 
     <div class="container navbar">
 
-      <a href="#home" class="logo">
-        Dashify
-      </a>
+	 <a href="#home" class="logo">
+		<img src="logo.png" alt="Dashify Logo" class="logo-img">
+		  Dashify
+		</a>
 
       <div class="hamburger" id="hamburger">
         ☰
