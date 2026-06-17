@@ -197,34 +197,23 @@ header h1 {
 
 .industries-track {
   display: flex;
-  gap: 24px;
+  align-items: center;
   width: max-content;
-  animation: scrollIndustries 35s linear infinite;
+  animation: scrollIndustries 30s linear infinite;
 }
 
-.industry-card {
-  flex-shrink: 0;
-  background: white;
-  min-width: 180px;
-  padding: 25px 20px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-}
-
-.industry-card img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 15px;
-}
-
-.industry-card span {
-  display: block;
+.industries-track span {
+  font-size: 24px;
   font-weight: 600;
   color: #0b2a4a;
-  font-size: 16px;
+  white-space: nowrap;
+}
+
+.separator {
+  margin: 0 30px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #0b2a4a;
 }
 
 @keyframes scrollIndustries {
@@ -236,6 +225,7 @@ header h1 {
     transform: translateX(-50%);
   }
 }
+         
          
 /* CONTACT BUTTON */
 .contact-form form .contact-button {
@@ -622,8 +612,6 @@ function toggleService(element) {
 </div>
 
 </div>
-
-
 <!-- WHO WE SERVE -->
 <section id="industries" style="background:#eef2f7;">
   <div class="container">
@@ -643,109 +631,79 @@ function toggleService(element) {
     <div class="industries-marquee">
       <div class="industries-track">
 
-        <!-- Retail -->
-        <div class="industry-card">
-          <img src="icon_retail.png" alt="Retail">
-          <span>Retail</span>
-        </div>
+        <span>Retail</span>
+        <span class="separator">•</span>
 
-        <!-- Finance -->
-        <div class="industry-card">
-          <img src="icon_finance.png" alt="Finance">
-          <span>Finance</span>
-        </div>
+        <span>Finance</span>
+        <span class="separator">•</span>
 
-        <!-- Healthcare -->
-        <div class="industry-card">
-          <img src="icon_healthcare.png" alt="Healthcare">
-          <span>Healthcare</span>
-        </div>
+        <span>Healthcare</span>
+        <span class="separator">•</span>
 
-        <!-- Travel -->
-        <div class="industry-card">
-          <img src="icon_travel.png" alt="Travel">
-          <span>Travel</span>
-        </div>
+        <span>Travel & Tourism</span>
+        <span class="separator">•</span>
 
-        <!-- Sports -->
-        <div class="industry-card">
-          <img src="icon_sports.png" alt="Sports">
-          <span>Sports</span>
-        </div>
+        <span>Sports</span>
+        <span class="separator">•</span>
 
-        <!-- NGOs -->
-        <div class="industry-card">
-          <img src="icon_ngo.png" alt="NGOs">
-          <span>NGOs</span>
-        </div>
+        <span>NGOs</span>
+        <span class="separator">•</span>
 
-        <!-- E-Commerce -->
-        <div class="industry-card">
-          <img src="icon_ecommerce.png" alt="E-Commerce">
-          <span>E-Commerce</span>
-        </div>
+        <span>E-Commerce</span>
+        <span class="separator">•</span>
 
-        <!-- Education -->
-        <div class="industry-card">
-          <img src="icon_education.png" alt="Education">
-          <span>Education</span>
-        </div>
+        <span>Education</span>
+        <span class="separator">•</span>
 
-        <!-- Manufacturing -->
-        <div class="industry-card">
-          <img src="icon_manufacturing.png" alt="Manufacturing">
-          <span>Manufacturing</span>
-        </div>
+        <span>Manufacturing</span>
+        <span class="separator">•</span>
 
-        <!-- Logistics -->
-        <div class="industry-card">
-          <img src="icon_logistics.png" alt="Logistics">
-          <span>Logistics</span>
-        </div>
+        <span>Logistics</span>
+        <span class="separator">•</span>
 
-        <!-- Property -->
-        <div class="industry-card">
-          <img src="icon_property.png" alt="Property">
-          <span>Property</span>
-        </div>
+        <span>Property</span>
+        <span class="separator">•</span>
 
-        <!-- Professional Services -->
-        <div class="industry-card">
-          <img src="icon_services.png" alt="Professional Services">
-          <span>Professional Services</span>
-        </div>
+        <span>Professional Services</span>
+        <span class="separator">•</span>
 
-        <!-- DUPLICATE SET FOR CONTINUOUS SCROLL -->
+        <!-- Duplicate for seamless scrolling -->
 
-        <div class="industry-card">
-          <img src="icon_retail.png" alt="Retail">
-          <span>Retail</span>
-        </div>
+        <span>Retail</span>
+        <span class="separator">•</span>
 
-        <div class="industry-card">
-          <img src="icon_finance.png" alt="Finance">
-          <span>Finance</span>
-        </div>
+        <span>Finance</span>
+        <span class="separator">•</span>
 
-        <div class="industry-card">
-          <img src="icon_healthcare.png" alt="Healthcare">
-          <span>Healthcare</span>
-        </div>
+        <span>Healthcare</span>
+        <span class="separator">•</span>
 
-        <div class="industry-card">
-          <img src="icon_travel.png" alt="Travel">
-          <span>Travel</span>
-        </div>
+        <span>Travel & Tourism</span>
+        <span class="separator">•</span>
 
-        <div class="industry-card">
-          <img src="icon_sports.png" alt="Sports">
-          <span>Sports</span>
-        </div>
+        <span>Sports</span>
+        <span class="separator">•</span>
 
-        <div class="industry-card">
-          <img src="icon_ngo.png" alt="NGOs">
-          <span>NGOs</span>
-        </div>
+        <span>NGOs</span>
+        <span class="separator">•</span>
+
+        <span>E-Commerce</span>
+        <span class="separator">•</span>
+
+        <span>Education</span>
+        <span class="separator">•</span>
+
+        <span>Manufacturing</span>
+        <span class="separator">•</span>
+
+        <span>Logistics</span>
+        <span class="separator">•</span>
+
+        <span>Property</span>
+        <span class="separator">•</span>
+
+        <span>Professional Services</span>
+        <span class="separator">•</span>
 
       </div>
     </div>
