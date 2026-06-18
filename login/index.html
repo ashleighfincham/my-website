@@ -79,6 +79,42 @@
       color: var(--brand);
       text-decoration: none;
     }
+
+    .login-button {
+      width: 100%;
+      padding: 14px;
+      background: var(--brand);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .return-button {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      background: transparent;
+      color: var(--brand);
+      border: 2px solid var(--brand);
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+    
+    .return-button:hover {
+      background: var(--brand);
+      color: white;
+    }
+
+    
   </style>
 
 </head>
@@ -106,14 +142,12 @@
     placeholder="Password"
     required>
 
-  <button type="submit">
-    Login
-  </button>
+<button type="submit" class="login-button">
+  Login
+</button>
 
-</form>
-
-<a href="../index.html" class="back-link">
-  ← Return to Website
+<a href="/" class="return-button">
+  Return to Website
 </a>
 
 
