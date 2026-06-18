@@ -281,6 +281,68 @@
       transform: scale(1.1);
     }
 
+	 /* ==========================================
+		DASHBOARD SHOWCASE
+	========================================== */
+		
+		.dashboard-showcase {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 30px;
+		max-width: 900px;
+		margin: 30px auto 0;
+		}
+		
+		.dashboard-card {
+		display: block;
+		background: white;
+		border-radius: var(--radius);
+		box-shadow: var(--shadow);
+		overflow: hidden;
+		text-decoration: none;
+		transition: 0.3s;
+		}
+		
+		.dashboard-card:hover {
+		transform: translateY(-5px);
+		}
+		
+		.dashboard-cover {
+		width: 100%;
+		height: 220px;
+		object-fit: cover;
+		display: block;
+		}
+		
+		.dashboard-caption {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		padding: 20px;
+		color: var(--brand);
+		font-weight: 600;
+		}
+		
+		.dashboard-icon {
+		width: 28px;
+		height: 28px;
+		object-fit: contain;
+		}
+		
+		/* Mobile */
+		
+		@media (max-width: 768px) {
+		
+		.dashboard-showcase {
+		grid-template-columns: 1fr;
+		}
+		
+		}
+
+
+
+	  
 	/* ==========================================
 		   INDUSTRY RIBBON
 	========================================== */
@@ -762,36 +824,66 @@
 
 <!--
 ==========================================
-EXPLORE OUR WORK (HIDDEN FOR NOW)
+EXPLORE OUR WORK (COMING SOON)
 ==========================================
+-->
 
 <div class="explore-work">
+
   <h3>Explore Our Work</h3>
 
-  <div class="icon-links">
+  <div class="dashboard-showcase">
 
-    <a href="https://app.powerbi.com/reportEmbed?reportId=d47e89dc-95aa-494e-b40c-ee55771a76cc&autoAuth=true&ctid=8004bbe8-7435-4d7f-8218-9434dfcfc51f"
-       target="_blank"
-       rel="noopener noreferrer">
-      <img
-        src="icon_pbi.png"
-        alt="Power BI"
-        class="bi-icon">
-    </a>
 
-    <a href="https://public.tableau.com/views/GlobalProduction_17640069777510/GlobalEnergy?:showVizHome=no&:embed=true"
-       target="_blank"
-       rel="noopener noreferrer">
-      <img
-        src="icon_tableau.png"
-        alt="Tableau"
-        class="bi-icon">
-    </a>
+<!-- Power BI -->
+
+<a href="coming-soon.html" class="dashboard-card">
+
+  <img
+    src="pbi_cover.png"
+    alt="Power BI Dashboards"
+    class="dashboard-cover">
+
+  <div class="dashboard-caption">
+
+    <img
+      src="icon_pbi.png"
+      alt="Power BI"
+      class="dashboard-icon">
+
+    <span>Power BI Dashboards</span>
 
   </div>
+
+</a>
+
+<!-- Tableau -->
+
+<a href="coming-soon.html" class="dashboard-card">
+
+  <img
+    src="tableau_cover.png"
+    alt="Tableau Dashboards"
+    class="dashboard-cover">
+
+  <div class="dashboard-caption">
+
+    <img
+      src="icon_tableau.png"
+      alt="Tableau"
+      class="dashboard-icon">
+
+    <span>Tableau Dashboards</span>
+
+  </div>
+
+</a>
+
+
+  </div>
+
 </div>
 
--->
 	  
 
   </div>
