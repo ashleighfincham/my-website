@@ -33,6 +33,10 @@
 
   <style>
 
+	  html {
+    scroll-behavior: smooth;
+  }
+
     /* ==========================================
        VARIABLES
     ========================================== */
@@ -584,6 +588,14 @@
   </style>
 
 </head>
+
+	<script>
+document.querySelector('a[href="#contact"]').addEventListener('click', function() {
+  setTimeout(() => {
+    history.replaceState({}, document.title, window.location.pathname);
+  }, 10);
+});
+</script>
 
 <body>
 
