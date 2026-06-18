@@ -3,308 +3,1463 @@
 
 <head>
 
+  <!-- ==========================================
+       META DATA
+  ========================================== -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Dashify | Business Monitoring at Your Fingertips</title>
 
-  <link rel="icon" type="image/png" href="favicon.png">
+	<link rel="icon" type="image/png" href="favicon.png">
+	
+  <meta name="description"
+        content="Dashify builds Power BI and Tableau dashboards that transform data into actionable business insights.">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- ==========================================
+       GOOGLE FONTS
+  ========================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- ==========================================
+       CSS
+  ========================================== -->
 
   <style>
 
-  html { scroll-behavior: smooth; }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	  html {
+    scroll-behavior: smooth;
   }
 
-  :root {
-    --brand: #0b2a4a;
-    --light: #f8fafc;
-    --text: #334155;
-    --muted: #64748b;
-    --radius: 20px;
-    --shadow: 0 20px 40px rgba(0,0,0,0.05);
-    --container-width: 1200px;
-  }
+    /* ==========================================
+       VARIABLES
+    ========================================== */
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--light);
-    color: var(--text);
-    line-height: 1.6;
-  }
+    :root {
+      --brand: #0b2a4a;
+      --brand-light: #143a63;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --text: #334155;
+      --muted: #64748b;
 
-  /* ✅ FIXED CONTAINER (this was your main issue) */
-  .container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+      --radius: 20px;
+      --shadow: 0 20px 40px rgba(0,0,0,0.05);
 
-  section {
-    padding: 80px 0;
-  }
+      --container-width: 1200px;
+    }
 
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(15,23,42,0.98);
-  }
+    /* ==========================================
+       RESET
+    ========================================== */
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .logo {
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-weight: 700;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .logo-img {
-    width: 60px;
-  }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-  .nav-links {
-    display: flex;
-    gap: 25px;
-  }
+     {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-  }
+    section {
+      padding: 80px 0;
+    }
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(rgba(11,42,74,0.85), rgba(11,42,74,0.85)),
-    url("data_background.png");
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding: 140px 20px;
-  }
+    /* ==========================================
+       TYPOGRAPHY
+    ========================================== */
 
-  .button {
-    display: inline-block;
-    margin-top: 25px;
-    background: white;
-    color: var(--brand);
-    padding: 14px 26px;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-  }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
 
-  /* CARDS */
-  .card {
-    background: white;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 40px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+    h2 {
+      font-size: 2.2rem;
+      text-align: center;
+      color: var(--brand);
+      margin-bottom: 20px;
+    }
 
-  /* CONTACT */
-  .contact-card {
-    display: grid;
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .section-intro {
+      max-width: 850px;
+      margin: 0 auto 50px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* ==========================================
+       NAVIGATION
+    ========================================== */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15,23,42,0.98);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      color: white;
+      font-size: 26px;
+      font-weight: 700;
+      text-decoration: none;
+	  display: flex;
+	  align-items: center;
+	  gap: 8px;
+    }
+
+	.logo-img {
+	  width: 76px;   
+	  height: auto;
+	}
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* ==========================================
+       HAMBURGER
+    ========================================== */
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 28px;
+    }
+
+    /* ==========================================
+       HERO
+    ========================================== */
+
+	.hero {
+	  background: 
+	    linear-gradient(rgba(11, 42, 74, 0.85), rgba(11, 42, 74, 0.85)),
+	    url("data_background.png");
+	
+	  background-size: cover;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	
+	  color: white;
+	  text-align: center;
+	  padding: 140px 20px;
+	}
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 20px;
+    }
+
+    /* ==========================================
+     SERVICES
+    ========================================== */
+
+    .services-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .service-image {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .solutions-card {
+      max-width: 1100px;
+      margin: 40px auto 0;
+    }
+
+	.tick-list {
+	  list-style: none;
+	  padding: 0;
+	  margin: 0 auto;
+	  display: table; /* key trick: keeps block centered */
+	  text-align: left; /* keeps text aligned neatly next to ticks */
+	}
+	
+	.tick-list li {
+	  position: relative;
+	  padding-left: 28px;
+	  margin: 10px 0;
+	  line-height: 1.6;
+	}
+	
+	/* Black tick */
+	.tick-list li::before {
+	  content: "✓";
+	  position: absolute;
+	  left: 0;
+	  color: black;
+	  font-weight: bold;
+	}
+   /* ==========================================
+       EXPLORE OUR WORK (DASHBOARDS)
+    ========================================== */
+
+    .explore-work {
+      margin-top: 30px;
+      text-align: center; /* centers "Explore Our Work" */
+    }
+
+    .explore-work h3 {
+      margin-bottom: 15px;
+    }
+
+    .icon-links {
+      display: flex;
+      justify-content: center; /* centers icons horizontally */
+      align-items: center;
+      gap: 20px;
+    }
+
+    .bi-icon {
+      width: 45px;
+      height: auto;
+      transition: transform 0.2s ease;
+    }
+
+    .bi-icon:hover {
+      transform: scale(1.1);
+    }
+
+	 /* ==========================================
+		DASHBOARD SHOWCASE
+	========================================== */
+		
+		.dashboard-showcase {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 30px;
+		max-width: 900px;
+		margin: 30px auto 0;
+		}
+		
+		.dashboard-card {
+		display: block;
+		background: white;
+		border-radius: var(--radius);
+		box-shadow: var(--shadow);
+		overflow: hidden;
+		text-decoration: none;
+		transition: 0.3s;
+		}
+		
+		.dashboard-card:hover {
+		transform: translateY(-5px);
+		}
+		
+		.dashboard-cover {
+		width: 100%;
+		height: 220px;
+		object-fit: cover;
+		display: block;
+		}
+		
+		.dashboard-caption {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		padding: 20px;
+		color: var(--brand);
+		font-weight: 600;
+		}
+		
+		.dashboard-icon {
+		width: 28px;
+		height: 28px;
+		object-fit: contain;
+		}
+		
+		/* Mobile */
+		
+		@media (max-width: 768px) {
+		
+		.dashboard-showcase {
+		grid-template-columns: 1fr;
+		}
+		
+		}
+
+
+
+	  
+	/* ==========================================
+		   INDUSTRY RIBBON
+	========================================== */
+		
+		.industry-marquee {
+		  overflow: hidden;
+		  width: 100%;
+		  margin-top: 20px;
+		}
+		
+		.industry-track {
+		  display: flex;
+		  align-items: center;
+		  gap: 50px;
+		  width: max-content;
+		  animation: scrollIndustries 100s linear infinite;
+		}
+		
+		.industry-track span {
+		  display: flex;
+		  align-items: center;
+		  gap: 10px;
+		  white-space: nowrap;
+		  font-weight: 500;
+		  color: var(--text);
+		}
+		
+		.industry-track img {
+		  width: 28px;
+		  height: 28px;
+		  object-fit: contain;
+		}
+		
+		@keyframes scrollIndustries {
+		  from {
+		    transform: translateX(0);
+		  }
+		
+		  to {
+		    transform: translateX(-50%);
+		  }
+		}
+		    
+    /* ==========================================
+    	PRICING
+    ========================================== */
+    
+        .pricing-table {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    .pricing-table table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+      padding: 18px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .pricing-table th {
+      background: var(--brand);
+      color: white;
+      font-weight: 600;
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .section-note {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    
+    /* ==========================================
+       ABOUT US
+    ========================================== */
+
+    .about-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 50px;
+      text-align: center;
+    }
+
+    .about-card p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ==========================================
+       CONTACT
+    ========================================== */
+
+.contact-details {
+margin-top: 25px;
+}
+
+.contact-item {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+margin: 12px 0;
+color: #64748b;
+}
+
+.contact-item a {
+color: var(--brand);
+text-decoration: none;
+}
+
+.contact-icon {
+width: 24px;
+height: 24px;
+object-fit: contain;
+}
+
+	  
+    .contact-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+
+    .contact-email {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-email a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-email a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      padding: 14px 18px;
+      border: 1px solid #dbe2ea;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* ==========================================
+       BUTTONS
+    ========================================== */
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      background: white;
+      color: var(--brand);
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    /* ==========================================
+       CARDS
+    ========================================== */
+
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+/* ==========================================
+FOOTER
+========================================== */
+
+.footer {
+width: 100%;
+background: #0b2a4a;
+color: white;
+padding: 60px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+	  
+@media (max-width: 768px) {
+  .footer-container {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+.footer-brand {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 15px;
+}
 
-  input, textarea {
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-  }
+.footer-logo {
+width: 40px;
+height: auto;
+}
 
-  .contact-details {
-    text-align: center;
-  }
+.footer-brand h3,
+.footer-column h4 {
+margin: 0 0 15px;
+}
 
-  .contact-item {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
-    align-items: center;
-  }
+.footer-column p,
+.footer-column li {
+color: rgba(255, 255, 255, 0.8);
+line-height: 1.8;
+}
 
-  .contact-icon {
-    width: 26px;
-  }
+.footer-column p {
+max-width: 260px;
+}
 
-  /* FOOTER */
-  .footer {
-    background: var(--brand);
-    color: white;
-    padding: 60px 0 20px;
-  }
+.footer-column ul {
+list-style: none;
+margin: 0;
+padding: 0;
+}
 
-  .footer-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-  }
+.footer-column a {
+color: rgba(255, 255, 255, 0.8);
+text-decoration: none;
+transition: color 0.3s;
+}
 
-  .footer-bottom {
-    margin-top: 40px;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    padding-top: 20px;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
-  }
+.footer-column a:hover {
+color: white;
+}
 
-  @media (max-width: 768px) {
-    .footer-container {
-      grid-template-columns: 1fr;
+.footer-bottom {
+margin-top: 40px;
+padding-top: 20px;
+border-top: 1px solid rgba(255, 255, 255, 0.15);
+text-align: center;
+color: rgba(255, 255, 255, 0.6);
+font-size: 0.9rem;
+}
+
+.footer-brand-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-logo {
+  width: 40px;
+  height: auto;
+}
+	  
+    /* ==========================================
+       MOBILE NAVIGATION
+    ========================================== */
+
+    @media (max-width: 768px) {
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        padding: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero {
+        padding: 100px 20px;
+      }
+      
+      .services-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
     }
-  }
 
   </style>
 
 </head>
 
+	<script>
+document.querySelector('a[href="#contact"]').addEventListener('click', function() {
+  setTimeout(() => {
+    history.replaceState({}, document.title, window.location.pathname);
+  }, 10);
+});
+</script>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="container navbar">
+  <!-- ==========================================
+       NAVIGATION
+  ========================================== -->
 
-    <a href="#" class="logo" id="logoLink">
-      <img src="logo.png" class="logo-img">
-      Dashify
-    </a>
+  <nav>
 
-    <div class="nav-links">
-      <a href="#what">What We Do</a>
-      <a href="#dashboards">Dashboards</a>
-      <a href="#contact">Contact</a>
+    <div class="container navbar">
+
+	 <a href="#" class="logo" id="logoLink">
+		<img src="logo.png" alt="Dashify Logo" class="logo-img">
+		  Dashify
+		</a>
+
+      <div class="hamburger" id="hamburger">
+        ☰
+      </div>
+
+		<div class="nav-links" id="navLinks">
+		  <a href="#" data-scroll="what-we-do">What We Do</a>
+		  <a href="#" data-scroll="dashboards">Dashboards</a>
+		  <a href="#" data-scroll="pricing">Pricing</a>
+		  <a href="#" data-scroll="about">About Us</a>
+		  <a href="#" data-scroll="contact">Contact Us</a>
+		  <a href="/login/">Login</a>
+		</div>
+
     </div>
 
-  </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<header class="hero">
+  <!-- ==========================================
+       HERO
+  ========================================== -->
+
+  <header class="hero">
+
+    <div class="container">
+
+      <h1>Transform Your Business Data Into Actionable Insights</h1>
+
+      <p>
+        Custom Power BI and Tableau dashboards that help businesses monitor performance, identify trends, and make informed decisions.
+      </p>
+
+       <a href="#contact" class="button">
+        Request a Consultation
+      </a>
+
+    </div>
+
+  </header>
+
+<!-- ==========================================
+     WHAT WE DO
+========================================== -->
+
+<section id="what-we-do">
+
   <div class="container">
-    <h1>Transform Your Data Into Insights</h1>
-    <p>Custom Power BI & Tableau dashboards for better decisions.</p>
-    <a href="#contact" class="button">Request Consultation</a>
-  </div>
-</header>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
+    <h2>What We Do</h2>
 
-    <h2>Contact Us</h2>
+    <p class="section-intro">
+      At Dashify, we help businesses transform complex data into clear, actionable insights through custom Power BI and Tableau solutions. By bringing together data from multiple sources into a single view, we help organisations improve monitoring capabilities and streamline reporting.
+    </p>
 
-    <div class="card contact-card">
+    <div class="services-grid services-grid-3">
 
-      <form>
-        <input placeholder="Name">
-        <input placeholder="Company">
-        <input placeholder="Email">
-        <textarea placeholder="Message"></textarea>
-        <button class="button">Send Message</button>
-      </form>
+      <!-- DATA SETUP -->
+      <div class="service-card">
 
-      <div class="contact-details">
-
-        <div class="contact-item">
-          <img src="icon_email.png" class="contact-icon">
-          <a href="mailto:info@dashify.co.za">info@dashify.co.za</a>
+        <div class="service-icon">
+          <img
+            src="icon_datas.png"
+            alt="Data Setup"
+            class="service-image">
         </div>
 
-        <div class="contact-item">
-          <img src="icon_location.png" class="contact-icon">
-          <span>Johannesburg, South Africa</span>
+        <h3>Data Setup</h3>
+
+        <p>
+          We establish data connections and infrastructure that support automated updates, seamless integrations, and scalable reporting solutions.
+        </p>
+
+      </div>
+
+      <!-- INTERACTIVE DASHBOARDS -->
+      <div class="service-card">
+
+        <div class="service-icon">
+          <img
+            src="icon_dashboard.png"
+            alt="Interactive Dashboards"
+            class="service-image">
         </div>
+
+        <h3>Interactive Dashboards</h3>
+
+        <p>
+          We design and build dashboards that enable users to monitor performance, explore trends, and access the insights most relevant to their role.
+        </p>
+
+      </div>
+
+      <!-- AUTOMATED REPORTING -->
+      <div class="service-card">
+
+        <div class="service-icon">
+          <img
+            src="icon_report.png"
+            alt="Automated Reporting"
+            class="service-image">
+        </div>
+
+        <h3>Automated Reporting</h3>
+
+        <p>
+          We configure dashboard refreshes, reducing manual reporting effort and ensuring decision-makers always have access to current information.
+        </p>
 
       </div>
 
     </div>
 
+    <!-- HOW WE HELP -->
+
+    <div class="service-card solutions-card">
+
+      <h3>Unlock the Value of Your Data</h3>
+
+		<ul class="tick-list">
+		  <li>Visualise complex business data through intuitive dashboards</li>
+		  <li>Monitor KPIs and business performance in real time</li>
+		  <li>Automate reporting and reduce manual processes</li>
+		  <li>Bring together data from multiple sources into a single view</li>
+		  <li>Enable interactive filtering and drill-down analysis</li>
+		  <li>Improve decision-making through business intelligence and analytics</li>
+		  <li>Access dashboards seamlessly across desktop and mobile devices</li>
+		</ul>
+
+    </div>
+
   </div>
+
+<!-- INDUSTRIES WE WORK WITH -->
+
+<div class="explore-work">
+
+  <h3>Industries We Work With</h3>
+
+  <div class="industry-marquee">
+
+    <div class="industry-track">
+
+      <span><img src="icon_sport.png" alt="Sports"> Sports</span>
+
+      <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
+
+      <span><img src="icon_finance.png" alt="Finance"> Finance</span>
+
+      <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
+
+      <span><img src="icon_retail.png" alt="Retail"> Retail</span>
+
+      <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
+
+      <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
+
+      <span><img src="icon_education.png" alt="Education"> Education</span>
+
+	  <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+
+	  <span><img src="icon_marketing.png" alt="Marketing"> Marketing</span>
+
+	 <span><img src="icon_agri.png" alt="Agriculture"> Agriculture</span>
+
+      <!-- Duplicate items for seamless scrolling -->
+
+      <span><img src="icon_sport.png" alt="Sports"> Sports</span>
+
+      <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
+
+      <span><img src="icon_finance.png" alt="Finance"> Finance</span>
+
+      <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
+
+      <span><img src="icon_retail.png" alt="Retail"> Retail</span>
+
+      <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
+
+      <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
+
+      <span><img src="icon_education.png" alt="Education"> Education</span>
+
+	  <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+
+	  <span><img src="icon_marketing.png" alt="Marketing"> Marketing</span>
+
+	<span><img src="icon_agri.png" alt="Agriculture"> Agriculture</span>
+
+		<!-- Duplicate items for seamless scrolling -->
+
+      <span><img src="icon_sport.png" alt="Sports"> Sports</span>
+
+      <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
+
+      <span><img src="icon_finance.png" alt="Finance"> Finance</span>
+
+      <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
+
+      <span><img src="icon_retail.png" alt="Retail"> Retail</span>
+
+      <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
+
+      <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
+
+      <span><img src="icon_education.png" alt="Education"> Education</span>
+
+	  <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+
+	  <span><img src="icon_marketing.png" alt="Marketing"> Marketing</span>
+
+	<span><img src="icon_agri.png" alt="Agriculture"> Agriculture</span>
+
+		      <!-- Duplicate items for seamless scrolling -->
+
+      <span><img src="icon_sport.png" alt="Sports"> Sports</span>
+
+      <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
+
+      <span><img src="icon_finance.png" alt="Finance"> Finance</span>
+
+      <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
+
+      <span><img src="icon_retail.png" alt="Retail"> Retail</span>
+
+      <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
+
+      <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
+
+      <span><img src="icon_education.png" alt="Education"> Education</span>
+
+	  <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+
+	  <span><img src="icon_marketing.png" alt="Marketing"> Marketing</span>
+
+	<span><img src="icon_agri.png" alt="Agriculture"> Agriculture</span>
+
+    </div>
+
+  </div>
+
+</div>
+
+	
 </section>
 
-<!-- FOOTER -->
+<!-- ==========================================
+     DASHBOARDS
+========================================== -->
+
+<section id="dashboards">
+
+  <div class="container">
+
+<h2>Dashboards</h2>
+
+<p class="section-intro">
+  We create tailored dashboards using your preferred business intelligence platform, with particular expertise in Microsoft Power BI and Tableau. By bringing together data from multiple sources, we transform complex information into intuitive, interactive dashboards that help organisations monitor performance, identify trends, and make informed decisions. Our solutions are designed to be accessible across desktop and mobile devices, for key business insights at your fingertips.
+</p>
+
+<!--
+==========================================
+EXPLORE OUR WORK (COMING SOON)
+==========================================
+-->
+
+<div class="explore-work">
+
+  <h3>Explore Our Work</h3>
+
+  <div class="dashboard-showcase">
+
+
+<!-- Power BI -->
+
+<a href="/coming-soon/" class="dashboard-card">
+
+  <img
+    src="pbi_cover.png"
+    alt="Power BI Dashboards"
+    class="dashboard-cover">
+
+  <div class="dashboard-caption">
+
+    <img
+      src="icon_pbi.png"
+      alt="Power BI"
+      class="dashboard-icon">
+
+    <span>Power BI Dashboards</span>
+
+  </div>
+
+</a>
+
+<!-- Tableau -->
+
+<a href="/coming-soon/" class="dashboard-card">
+
+  <img
+    src="tableau_cover.png"
+    alt="Tableau Dashboards"
+    class="dashboard-cover">
+
+  <div class="dashboard-caption">
+
+    <img
+      src="icon_tableau.png"
+      alt="Tableau"
+      class="dashboard-icon">
+
+    <span>Tableau Dashboards</span>
+
+  </div>
+
+</a>
+
+
+  </div>
+
+</div>
+
+	  
+
+  </div>
+
+</section>
+
+
+  </div>
+
+</section>
+
+<!-- ==========================================
+     PRICING
+========================================== -->
+
+<section id="pricing">
+
+  <div class="container">
+
+    <h2>Pricing</h2>
+
+    <p class="section-intro">
+      Our pricing is tailored to the scope and complexity of each project. Factors such as data sources, dashboard complexity, level of interactivity, and ongoing support requirements all influence the final cost. We work closely with clients to define clear deliverables and ensure transparent pricing.
+    </p>
+
+    <div class="pricing-table">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Service Option</th>
+            <th>What’s Included</th>
+            <th>Typical Scope</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td><strong>Project Scope & Consultation</strong></td>
+            <td>
+              Requirements gathering, data assessment, solution design, and platform recommendation (Power BI / Tableau)
+            </td>
+            <td>
+              One-time engagement to define project requirements
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Dashboard Development & Delivery</strong></td>
+            <td>
+              Design and build of interactive dashboards, data modelling, visualisation development, and deployment
+            </td>
+            <td>
+              Based on number of dashboards, data sources, and complexity
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Maintenance & Support</strong></td>
+            <td>
+              Ongoing dashboard updates, data refresh monitoring, enhancements, and technical support
+            </td>
+            <td>
+              Monthly or ad-hoc support packages available
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <p class="section-note">
+      Final pricing is provided after an initial consultation and is fully dependent on project requirements and scope. 
+		<br><br>
+	Need something specific? Contact us for a tailored quotation based on your business requirements.
+    </p>
+
+  </div>
+
+</section>
+
+  <!-- ==========================================
+       ABOUT US
+  ========================================== -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <h2>About Us</h2>
+
+      <div class="about-card">
+
+        <p>
+          At Dashify, we are passionate about helping organisations unlock the full value of their data. With a combined 15 years of experience in data analytics, reporting, and business intelligence, we specialise in transforming complex information into clear, intuitive visualisations that support better decision-making.
+        </p>
+
+        <p>
+          Our expertise spans a range of leading analytics and visualisation platforms, including Microsoft Power BI and Tableau, enabling us to deliver solutions tailored to each client's unique requirements. By bridging the gap between valuable captured data and meaningful insights, we help businesses improve visibility, monitor performance, and make confident, data-driven decisions.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       CONTACT US
+  ========================================== -->
+
+  <section id="contact">
+
+    <div class="container">
+
+     <!-- ==========================================
+     CONTACT US
+========================================== -->
+
+<section id="contact">
+
+  <div class="container">
+
+<h2>Contact Us</h2>
+
+<p class="section-intro">
+  Get in touch to discuss your reporting, analytics, and dashboard requirements. We'll work with you to develop a solution tailored to your business needs.
+</p>
+
+<div class="contact-card">
+
+  <form>
+
+    <input
+      type="text"
+      placeholder="Name"
+      required>
+
+    <input
+      type="text"
+      placeholder="Company Name">
+
+    <input
+      type="email"
+      placeholder="Email Address"
+      required>
+
+    <textarea
+      placeholder="Tell us about your project requirements, reporting needs, or dashboard objectives..."
+      required></textarea>
+
+    <button type="submit" class="button">
+      Send Message
+    </button>
+
+  </form>
+
+  <div class="contact-details">
+
+    <div class="contact-item">
+      <img src="icon_email.png" alt="Email" class="contact-icon">
+      <a href="mailto:info@dashify.co.za">
+        info@dashify.co.za
+      </a>
+    </div>
+
+    <div class="contact-item">
+      <img src="icon_location.png" alt="Location" class="contact-icon">
+      <span>South Africa</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+  </section>
+
+
+  <!-- ==========================================
+       FOOTER
+
+  <footer>
+
+    <p>
+     © <span id="year"></span> Dashify. All rights reserved.
+    </p>
+
+  </footer>
+
+		
+  ========================================== -->
+
+
+
+  <!-- ==========================================
+       JAVASCRIPT
+  ========================================== -->
+
+  <script>
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+	 document.getElementById("year").textContent = new Date().getFullYear();
+
+		// Smooth scrolling without changing URL
+		document.querySelectorAll('[data-scroll]').forEach(link => {
+		  link.addEventListener('click', function(e) {
+		    e.preventDefault();
+		
+		    document.getElementById(this.dataset.scroll).scrollIntoView({
+		      behavior: 'smooth'
+		    });
+		  });
+		});
+		
+		// Logo scrolls to top
+		document.getElementById('logoLink').addEventListener('click', function(e) {
+		  e.preventDefault();
+		
+		  window.scrollTo({
+		    top: 0,
+		    behavior: 'smooth'
+		  });
+		});
+
+
+document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    document.getElementById('contact').scrollIntoView({
+        behavior: 'smooth'
+    });
+
+    history.replaceState(null, null, window.location.pathname);
+});
+
+	  
+	  
+	  
+  </script>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
 <footer class="footer">
 
-  <div class="container footer-container">
+  <div class="footer-container">
 
-    <div>
-      <img src="logo.png" style="width:50px;">
-      <h3>Dashify</h3>
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Column 1: Brand -->
+    <div class="footer-column footer-brand-column">
+
+      <div class="footer-brand-vertical">
+        <img src="logo.png" alt="Dashify Logo" class="footer-logo">
+        <h3>Dashify</h3>
+      </div>
+
     </div>
 
-    <div>
+    <!-- Column 2: Services -->
+    <div class="footer-column">
       <h4>Services</h4>
-      <p>Dashboards<br>Analytics<br>Data Prep</p>
+      <ul>
+        <li>Dashboard Solutions</li>
+        <li>Analytics Consulting</li>
+        <li>Data Preparation</li>
+      </ul>
     </div>
 
-    <div>
-      <h4>Links</h4>
-      <p>Home<br>About<br>Contact</p>
+    <!-- Column 3: Quick Links -->
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home" data-scroll="home">Home</a></li>
+        <li><a href="#about" data-scroll="about">About</a></li>
+        <li><a href="#dashboards" data-scroll="dashboards">Dashboards</a></li>
+        <li><a href="#contact" data-scroll="contact">Contact</a></li>
+      </ul>
     </div>
 
-    <div>
+    <!-- Column 4: Contact -->
+    <div class="footer-column">
       <h4>Contact</h4>
-      <p>info@dashify.co.za<br>Johannesburg</p>
+
+      <p>
+        <a href="mailto:info@dashify.co.za">
+          info@dashify.co.za
+        </a>
+      </p>
+
+      <p>Johannesburg, South Africa</p>
     </div>
+
+  </div>
+
+</footer>
+	  
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Smooth scrolling (no URL hash)
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const target = document.getElementById(this.dataset.scroll);
+
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, null, window.location.pathname);
+      }
+    });
+  });
+
+  // Logo scroll to top
+  document.getElementById('logoLink')?.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    history.replaceState(null, null, window.location.pathname);
+  });
+
+</script>
 
   </div>
 
   <div class="footer-bottom">
-    © <span id="year"></span> Dashify
+    © <span id="year"></span> Dashify. All rights reserved.
   </div>
 
 </footer>
 
-<!-- JS -->
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
 <script>
 
-document.getElementById("year").textContent = new Date().getFullYear();
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
 
-document.getElementById("logoLink").addEventListener("click", (e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener("click", e => {
-    const id = a.getAttribute("href").replace("#","");
-    const el = document.getElementById(id);
-    if (el) {
-      e.preventDefault();
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+  hamburger?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
   });
-});
+
+  // Dynamic copyright year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Smooth scrolling without changing URL
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const target = document.getElementById(this.dataset.scroll);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+
+        history.replaceState(null, null, window.location.pathname);
+      }
+    });
+  });
+
+  // Logo scrolls to top
+  document.getElementById('logoLink')?.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    history.replaceState(null, null, window.location.pathname);
+  });
 
 </script>
 
+</body>
+</html>
+
+
+</footer>
+		
 </body>
 </html>
