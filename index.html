@@ -556,93 +556,74 @@ object-fit: contain;
       padding: 30px;
     }
 
-    /* ==========================================
-       FOOTER
-    ========================================== */
+/* ==========================================
+FOOTER
+========================================== */
 
-  /*   footer {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    } */
-
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-}
-
-.footer-logo {
-  width: 40px;
-  height: auto;
-  margin: 0;
-}
-
-.footer-brand h3 {
-  margin: 0;
-}
-	  
-	  .footer-column a {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-column a:hover {
-  color: white;
-}
-
-	  .footer {
-  background: #0b2a4a;
-  color: white;
-  padding: 60px 20px 20px;
+.footer {
+background: #0b2a4a;
+color: white;
+padding: 60px 20px 20px;
 }
 
 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 40px;
 }
 
+.footer-brand {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 15px;
+}
 
-.footer-column h3,
+.footer-logo {
+width: 40px;
+height: auto;
+}
+
+.footer-brand h3,
 .footer-column h4 {
-  margin-bottom: 15px;
+margin: 0 0 15px;
 }
 
 .footer-column p,
 .footer-column li {
-  color: rgba(255,255,255,0.8);
-  line-height: 1.8;
+color: rgba(255, 255, 255, 0.8);
+line-height: 1.8;
+}
+
+.footer-column p {
+max-width: 260px;
 }
 
 .footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+list-style: none;
+margin: 0;
+padding: 0;
 }
 
 .footer-column a {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
+color: rgba(255, 255, 255, 0.8);
+text-decoration: none;
+transition: color 0.3s;
 }
 
 .footer-column a:hover {
-  color: white;
+color: white;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.15);
-  margin-top: 40px;
-  padding-top: 20px;
-  text-align: center;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.9rem;
+margin-top: 40px;
+padding-top: 20px;
+border-top: 1px solid rgba(255, 255, 255, 0.15);
+text-align: center;
+color: rgba(255, 255, 255, 0.6);
+font-size: 0.9rem;
 }
 
     /* ==========================================
@@ -1289,11 +1270,17 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
 
 <footer class="footer">
 
-  <div class="footer-container">
+<div class="footer-column">
 
-   <div class="footer-brand">
-  <img src="logo.png" alt="Dashify Logo" class="footer-logo">
-  <h3>Dashify</h3>
+  <div class="footer-brand">
+    <img src="logo.png" alt="Dashify Logo" class="footer-logo">
+    <h3>Dashify</h3>
+  </div>
+
+  <p>
+    Transforming data into clear, actionable insights through modern dashboard and analytics solutions.
+  </p>
+
 </div>
 
     <div class="footer-column">
