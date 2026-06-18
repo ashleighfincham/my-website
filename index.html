@@ -633,6 +633,18 @@ color: rgba(255, 255, 255, 0.6);
 font-size: 0.9rem;
 }
 
+.footer-brand-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-logo {
+  width: 40px;
+  height: auto;
+}
+	  
     /* ==========================================
        MOBILE NAVIGATION
     ========================================== */
@@ -1283,18 +1295,24 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
 
   <div class="footer-container">
 
+<!-- ==========================================
+     FOOTER
+========================================== -->
 
+<footer class="footer">
+
+  <div class="footer-container">
+
+```
+<!-- Column 1: Brand -->
 <div class="footer-column">
-  <div class="footer-brand">
+  <div class="footer-brand-vertical">
     <img src="logo.png" alt="Dashify Logo" class="footer-logo">
     <h3>Dashify</h3>
   </div>
-
-  <p>
-    Transforming data into clear, actionable insights through modern dashboard solutions.
-  </p>
 </div>
 
+<!-- Column 2: Services -->
 <div class="footer-column">
   <h4>Services</h4>
   <ul>
@@ -1304,6 +1322,7 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
   </ul>
 </div>
 
+<!-- Column 3: Quick Links -->
 <div class="footer-column">
   <h4>Quick Links</h4>
   <ul>
@@ -1314,6 +1333,7 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
   </ul>
 </div>
 
+<!-- Column 4: Contact -->
 <div class="footer-column">
   <h4>Contact</h4>
 
@@ -1325,6 +1345,60 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
 
   <p>Johannesburg, South Africa</p>
 </div>
+```
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Dashify. All rights reserved.
+  </div>
+
+</footer>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Smooth scrolling (no URL hash)
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const target = document.getElementById(this.dataset.scroll);
+
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, null, window.location.pathname);
+      }
+    });
+  });
+
+  // Logo scroll to top
+  document.getElementById('logoLink')?.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    history.replaceState(null, null, window.location.pathname);
+  });
+
+</script>
 
   </div>
 
