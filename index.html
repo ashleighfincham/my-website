@@ -567,11 +567,18 @@ padding: 60px 20px 20px;
 }
 
 .footer-container {
-max-width: 1200px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 .footer-brand {
@@ -1278,7 +1285,7 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
   </div>
 
   <p>
-    Transforming data into clear, actionable insights through modern dashboard and analytics solutions.
+    Transforming data into clear, actionable insights through modern dashboard solutions.
   </p>
 
 </div>
