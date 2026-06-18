@@ -461,6 +461,31 @@
        CONTACT
     ========================================== */
 
+.contact-details {
+margin-top: 25px;
+}
+
+.contact-item {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+margin: 12px 0;
+color: #64748b;
+}
+
+.contact-item a {
+color: var(--brand);
+text-decoration: none;
+}
+
+.contact-icon {
+width: 18px;
+height: 18px;
+object-fit: contain;
+}
+
+	  
     .contact-card {
       max-width: 800px;
       margin: 0 auto;
@@ -1016,51 +1041,66 @@ EXPLORE OUR WORK (COMING SOON)
 
     <div class="container">
 
-      <h2>Contact Us</h2>
+     <!-- ==========================================
+     CONTACT US
+========================================== -->
 
-      <p class="section-intro">
-       Get in touch to discuss your reporting, analytics, and dashboard requirements. We'll work with you to develop a solution tailored to your business needs.
-      </p>
+<section id="contact">
 
-      <div class="contact-card">
+  <div class="container">
 
-        <form>
+<h2>Contact Us</h2>
 
-          <input
-            type="text"
-            placeholder="Name"
-            required>
+<p class="section-intro">
+  Get in touch to discuss your reporting, analytics, and dashboard requirements. We'll work with you to develop a solution tailored to your business needs.
+</p>
 
-          <input
-            type="text"
-            placeholder="Company Name">
+<div class="contact-card">
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            required>
+  <form>
 
-         <textarea placeholder="Tell us about your project requirements, reporting needs, or dashboard objectives..." required></textarea>
+    <input
+      type="text"
+      placeholder="Name"
+      required>
 
-          <button type="submit" class="button">
-            Send Message
-          </button>
+    <input
+      type="text"
+      placeholder="Company Name">
 
-        </form>
+    <input
+      type="email"
+      placeholder="Email Address"
+      required>
 
-        <div class="contact-email">
+    <textarea
+      placeholder="Tell us about your project requirements, reporting needs, or dashboard objectives..."
+      required></textarea>
 
-          <strong>Email:</strong>
+    <button type="submit" class="button">
+      Send Message
+    </button>
 
-          <a href="mailto:info@dashify.co.za">
-            info@dashify.co.za
-          </a>
+  </form>
 
-        </div>
+  <div class="contact-details">
 
-      </div>
-
+    <div class="contact-item">
+      <img src="icon_email.png" alt="Email" class="contact-icon">
+      <a href="mailto:info@dashify.co.za">
+        info@dashify.co.za
+      </a>
     </div>
+
+    <div class="contact-item">
+      <img src="icon_location.png" alt="Location" class="contact-icon">
+      <span>Johannesburg, South Africa</span>
+    </div>
+
+  </div>
+
+</div>
+
 
   </section>
 
