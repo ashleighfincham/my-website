@@ -567,6 +567,16 @@ object-fit: contain;
       padding: 40px 20px;
     } */
 
+	  .footer-column a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: white;
+}
+
 	  .footer {
   background: #0b2a4a;
   color: white;
@@ -1197,7 +1207,6 @@ EXPLORE OUR WORK (COMING SOON)
 
   <!-- ==========================================
        FOOTER
-  ========================================== -->
 
   <footer>
 
@@ -1206,6 +1215,11 @@ EXPLORE OUR WORK (COMING SOON)
     </p>
 
   </footer>
+
+		
+  ========================================== -->
+
+
 
   <!-- ==========================================
        JAVASCRIPT
@@ -1292,14 +1306,22 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
 
     <div class="footer-column">
       <h4>Contact</h4>
-      <p>info@dashify.co.za</p>
+     
+		<p>
+		  <a href="mailto:info@dashify.co.za">
+		    info@dashify.co.za
+		  </a>
+		</p>
+		
       <p>Johannesburg, South Africa</p>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    © 2026 Dashify. All rights reserved.
+     <p>
+     © <span id="year"></span> Dashify. All rights reserved.
+    </p>
   </div>
 
 </footer>
