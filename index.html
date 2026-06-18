@@ -1275,10 +1275,16 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
 	  
   </script>
 
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
 <footer class="footer">
 
-<div class="footer-column">
+  <div class="footer-container">
 
+
+<div class="footer-column">
   <div class="footer-brand">
     <img src="logo.png" alt="Dashify Logo" class="footer-logo">
     <h3>Dashify</h3>
@@ -1287,47 +1293,98 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
   <p>
     Transforming data into clear, actionable insights through modern dashboard solutions.
   </p>
-
 </div>
 
-    <div class="footer-column">
-      <h4>Services</h4>
-      <ul>
-        <li>Dashboard Solutions</li>
-        <li>Analytics Consulting</li>
-        <li>Data Preparation</li>
-      </ul>
-    </div>
+<div class="footer-column">
+  <h4>Services</h4>
+  <ul>
+    <li>Dashboard Solutions</li>
+    <li>Analytics Consulting</li>
+    <li>Data Preparation</li>
+  </ul>
+</div>
 
-    <div class="footer-column">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#dashboards">Dashboards</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+<div class="footer-column">
+  <h4>Quick Links</h4>
+  <ul>
+    <li><a href="#home" data-scroll="home">Home</a></li>
+    <li><a href="#about" data-scroll="about">About</a></li>
+    <li><a href="#dashboards" data-scroll="dashboards">Dashboards</a></li>
+    <li><a href="#contact" data-scroll="contact">Contact</a></li>
+  </ul>
+</div>
 
-    <div class="footer-column">
-      <h4>Contact</h4>
-     
-		<p>
-		  <a href="mailto:info@dashify.co.za">
-		    info@dashify.co.za
-		  </a>
-		</p>
-		
-      <p>Johannesburg, South Africa</p>
-    </div>
+<div class="footer-column">
+  <h4>Contact</h4>
+
+  <p>
+    <a href="mailto:info@dashify.co.za">
+      info@dashify.co.za
+    </a>
+  </p>
+
+  <p>Johannesburg, South Africa</p>
+</div>
 
   </div>
 
   <div class="footer-bottom">
-     <p>
-     © <span id="year"></span> Dashify. All rights reserved.
-    </p>
+    © <span id="year"></span> Dashify. All rights reserved.
   </div>
+
+</footer>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Dynamic copyright year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Smooth scrolling without changing URL
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const target = document.getElementById(this.dataset.scroll);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+
+        history.replaceState(null, null, window.location.pathname);
+      }
+    });
+  });
+
+  // Logo scrolls to top
+  document.getElementById('logoLink')?.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    history.replaceState(null, null, window.location.pathname);
+  });
+
+</script>
+
+</body>
+</html>
+
 
 </footer>
 		
