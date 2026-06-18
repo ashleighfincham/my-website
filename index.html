@@ -490,7 +490,7 @@
 
     <div class="container navbar">
 
-	 <a href="#home" class="logo">
+	 <a href="#" class="logo" id="logoLink">
 		<img src="logo.png" alt="Dashify Logo" class="logo-img">
 		  Dashify
 		</a>
@@ -499,13 +499,13 @@
         ☰
       </div>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#what-we-do">What We Do</a>
-        <a href="#dashboards">Dashboards</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact Us</a>
-      </div>
+		<div class="nav-links" id="navLinks">
+		  <a href="#" data-scroll="what-we-do">What We Do</a>
+		  <a href="#" data-scroll="dashboards">Dashboards</a>
+		  <a href="#" data-scroll="pricing">Pricing</a>
+		  <a href="#" data-scroll="about">About Us</a>
+		  <a href="#" data-scroll="contact">Contact Us</a>
+		</div>
 
     </div>
 
@@ -515,7 +515,7 @@
        HERO
   ========================================== -->
 
-  <header id="home" class="hero">
+  <header class="hero">
 
     <div class="container">
 
@@ -871,7 +871,28 @@ EXPLORE OUR WORK (HIDDEN FOR NOW)
     });
 
 	 document.getElementById("year").textContent = new Date().getFullYear();
-     
+
+		// Smooth scrolling without changing URL
+		document.querySelectorAll('[data-scroll]').forEach(link => {
+		  link.addEventListener('click', function(e) {
+		    e.preventDefault();
+		
+		    document.getElementById(this.dataset.scroll).scrollIntoView({
+		      behavior: 'smooth'
+		    });
+		  });
+		});
+		
+		// Logo scrolls to top
+		document.getElementById('logoLink').addEventListener('click', function(e) {
+		  e.preventDefault();
+		
+		  window.scrollTo({
+		    top: 0,
+		    behavior: 'smooth'
+		  });
+		});
+	  
   </script>
 
 </body>
