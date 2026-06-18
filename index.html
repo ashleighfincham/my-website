@@ -280,7 +280,50 @@
     .bi-icon:hover {
       transform: scale(1.1);
     }
-    
+
+	/* ==========================================
+		   INDUSTRY RIBBON
+	========================================== */
+		
+		.industry-marquee {
+		  overflow: hidden;
+		  width: 100%;
+		  margin-top: 20px;
+		}
+		
+		.industry-track {
+		  display: flex;
+		  align-items: center;
+		  gap: 50px;
+		  width: max-content;
+		  animation: scrollIndustries 25s linear infinite;
+		}
+		
+		.industry-track span {
+		  display: flex;
+		  align-items: center;
+		  gap: 10px;
+		  white-space: nowrap;
+		  font-weight: 500;
+		  color: var(--text);
+		}
+		
+		.industry-track img {
+		  width: 28px;
+		  height: 28px;
+		  object-fit: contain;
+		}
+		
+		@keyframes scrollIndustries {
+		  from {
+		    transform: translateX(0);
+		  }
+		
+		  to {
+		    transform: translateX(-50%);
+		  }
+		}
+		    
     /* ==========================================
     	PRICING
     ========================================== */
@@ -626,6 +669,57 @@
 
   </div>
 
+<!-- INDUSTRIES WE WORK WITH -->
+
+<div class="explore-work">
+
+  <h3>Industries We Work With</h3>
+
+  <div class="industry-marquee">
+
+    <div class="industry-track">
+
+      <span><img src="icon_sport.png" alt="Sports"> Sports</span>
+
+      <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
+
+      <span><img src="icon_finance.png" alt="Finance"> Finance</span>
+
+      <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
+
+      <span><img src="icon_retail.png" alt="Retail"> Retail</span>
+
+      <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
+
+      <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
+
+      <span><img src="icon_education.png" alt="Education"> Education</span>
+
+      <!-- Duplicate items for seamless scrolling -->
+
+      <span><img src="icon_sport.png" alt="Sports"> Sports</span>
+
+      <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
+
+      <span><img src="icon_finance.png" alt="Finance"> Finance</span>
+
+      <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
+
+      <span><img src="icon_retail.png" alt="Retail"> Retail</span>
+
+      <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
+
+      <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
+
+      <span><img src="icon_education.png" alt="Education"> Education</span>
+
+    </div>
+
+  </div>
+
+</div>
+
+	
 </section>
 
 <!-- ==========================================
