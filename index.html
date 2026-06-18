@@ -1112,6 +1112,20 @@ EXPLORE OUR WORK (COMING SOON)
 		    behavior: 'smooth'
 		  });
 		});
+
+
+document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    document.getElementById('contact').scrollIntoView({
+        behavior: 'smooth'
+    });
+
+    history.replaceState(null, null, window.location.pathname);
+});
+
+	  
+	  
 	  
   </script>
 
