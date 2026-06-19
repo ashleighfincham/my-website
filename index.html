@@ -534,7 +534,15 @@
 /* ==========================================
    FOOTER
 ========================================== */
+.footer-brand-link {
+  text-decoration: none;
+  color: white;
+}
 
+.footer-brand-link:hover {
+  opacity: 0.9;
+}
+	  
 .footer {
   background: var(--dark);
   color: white;
@@ -1148,10 +1156,14 @@ EXPLORE OUR WORK (COMING SOON)
     <!-- Brand -->
     <div class="footer-column">
 
-      <div class="footer-brand-vertical">
-        <img src="logo.png" alt="Dashify Logo" class="footer-logo">
-        <h3>Dashify</h3>
-      </div>
+    <div class="footer-brand-vertical">
+
+  <a href="#" id="footerLogoLink" class="footer-brand-link">
+    <img src="logo.png" alt="Dashify Logo" class="footer-logo">
+    <h3>Dashify</h3>
+  </a>
+
+</div>
 
     </div>
 
@@ -1174,7 +1186,7 @@ EXPLORE OUR WORK (COMING SOON)
       <h4>Quick Links</h4>
 
       <ul>
-        <li><a href="#" data-scroll="what-we-do">Home</a></li>
+        <li><a href="#" data-scroll="what-we-do">What We Do</a></li>
         <li><a href="#" data-scroll="dashboards">Dashboards</a></li>
         <li><a href="/login/">Login</a></li>
       </ul>
@@ -1253,7 +1265,13 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
     history.replaceState(null, null, window.location.pathname);
 });
 
-	  
+	document.getElementById('footerLogoLink').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  document.querySelector('.hero').scrollIntoView({
+    behavior: 'smooth'
+  });
+});  
 	  
 	  
   </script>
