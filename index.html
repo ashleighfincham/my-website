@@ -564,8 +564,12 @@ object-fit: contain;
    FOOTER
 ========================================== */
 .footer-brand-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-decoration: none;
   color: white;
+  gap: 0;
 }
 
 .footer-brand-link:hover {
@@ -603,7 +607,7 @@ object-fit: contain;
 }
 
 .footer-logo {
-  width: 160px;
+  width: 150px;
   height: auto;
 }
 
@@ -1178,9 +1182,10 @@ EXPLORE OUR WORK (COMING SOON)
 
     <div class="footer-brand-vertical">
 
-  <a href="#" id="footerLogoLink" class="footer-brand-link">
-    <img src="logo.png" alt="Dashify Logo" class="footer-logo">
-  </a>
+<a href="#" id="footerLogoLink" class="footer-brand-link">
+  <img src="logo.png" alt="Dashify Logo" class="footer-logo">
+  <h3>Dashify</h3>
+</a>
 
 </div>
 
