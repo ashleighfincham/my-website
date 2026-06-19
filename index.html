@@ -362,7 +362,7 @@
 		  align-items: center;
 		  gap: 50px;
 		  width: max-content;
-		  animation: scrollIndustries 40s linear infinite;
+		  animation: scrollIndustries 60s linear infinite;
 		}
 		
 		.industry-track span {
@@ -460,7 +460,36 @@
     /* ==========================================
        CONTACT
     ========================================== */
+.contact-details {
+margin-top: 25px;
+}
 
+.contact-item {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+margin: 12px 0;
+color: var(--muted);
+}
+
+.contact-item a {
+color: var(--brand);
+text-decoration: none;
+}
+
+.contact-item a:hover {
+text-decoration: underline;
+}
+
+.contact-icon {
+width: 22px;
+height: 22px;
+object-fit: contain;
+}
+
+
+	  
     .contact-card {
       max-width: 800px;
       margin: 0 auto;
@@ -569,7 +598,7 @@
 }
 
 .footer-logo {
-  width: 80px;
+  width: 120px;
   height: auto;
 }
 
@@ -834,62 +863,41 @@ document.querySelector('a[href="#contact"]').addEventListener('click', function(
     <div class="industry-track">
 
       <span><img src="icon_sport.png" alt="Sports"> Sports</span>
-
       <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
-
       <span><img src="icon_finance.png" alt="Finance"> Finance</span>
-
       <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
-
       <span><img src="icon_retail.png" alt="Retail"> Retail</span>
-
       <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
-
       <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
-
       <span><img src="icon_education.png" alt="Education"> Education</span>
-
 	  <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+	  <span><img src="icon_agri.png" alt="Agriculture"> Agriculture</span>
 
       <!-- Duplicate items for seamless scrolling -->
 
       <span><img src="icon_sport.png" alt="Sports"> Sports</span>
-
       <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
-
       <span><img src="icon_finance.png" alt="Finance"> Finance</span>
-
       <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
-
       <span><img src="icon_retail.png" alt="Retail"> Retail</span>
-
       <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
-
       <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
-
       <span><img src="icon_education.png" alt="Education"> Education</span>
-
-	 <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
-
+	  <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+	  <span><img src="icon_agri.png" alt="Agriculture"> Agriculture</span>
+		
 		      <!-- Duplicate items for seamless scrolling -->
-
+		
       <span><img src="icon_sport.png" alt="Sports"> Sports</span>
-
       <span><img src="icon_ecom.png" alt="E-commerce"> E-Commerce</span>
-
       <span><img src="icon_finance.png" alt="Finance"> Finance</span>
-
       <span><img src="icon_health.png" alt="Healthcare"> Healthcare</span>
-
       <span><img src="icon_retail.png" alt="Retail"> Retail</span>
-
       <span><img src="icon_logistics.png" alt="Logistics"> Logistics</span>
-
       <span><img src="icon_manufacturing.png" alt="Manufacturing"> Manufacturing</span>
-
       <span><img src="icon_education.png" alt="Education"> Education</span>
-
-	 <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+	  <span><img src="icon_services.png" alt="Customer Experience"> Customer Experience</span>
+	  <span><img src="icon_agri.png" alt="Agriculture"> Agriculture</span>
 
     </div>
 
@@ -1128,15 +1136,22 @@ EXPLORE OUR WORK (COMING SOON)
 
         </form>
 
-        <div class="contact-email">
+   <div class="contact-details">
 
-          <strong>Email:</strong>
+  <div class="contact-item">
+    <img src="icon_email.png" alt="Email" class="contact-icon">
+    <a href="mailto:info@dashify.co.za">
+      info@dashify.co.za
+    </a>
+  </div>
 
-          <a href="mailto:info@dashify.co.za">
-            info@dashify.co.za
-          </a>
+  <div class="contact-item">
+    <img src="icon_location.png" alt="Location" class="contact-icon">
+    <span>South Africa</span>
+  </div>
 
-        </div>
+</div>
+
 
       </div>
 
